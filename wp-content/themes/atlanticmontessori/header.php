@@ -8,8 +8,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title><?php _e(get_bloginfo('name'), 'kula'); ?></title>
 	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width">
-	<link rel="stylesheet" href="<?php _e(get_stylesheet_directory_uri()); ?>/css/style.css"/>
+	<meta name="viewport" content="width=device-width initial-scale=1">
 	<?php wp_head(); ?>
 </head>
 <body>

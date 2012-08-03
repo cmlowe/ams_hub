@@ -607,6 +607,7 @@ header .row.nav {
 .hero {
   position: relative;
   height: 350px;
+  margin-top: 1.5em;
 }
 .hero img {
   position: relative;
@@ -890,7 +891,36 @@ footer ul {
 }
 @media (max-width: 830px) {
   header {
+    padding-top: 1.5em;
     padding-bottom: 7em;
+  }
+  header .twocol,
+  header .onecol {
+    float: none;
+    width: 200px;
+    margin: 0px auto;
+  }
+  header .twocol a.logo,
+  header .onecol a.logo {
+    margin-bottom: 0.75em;
+  }
+  header nav.fourcol {
+    float: none;
+    width: 100%;
+    clear: both;
+  }
+  header nav.main-nav ul {
+    position: static;
+    margin-top: 0;
+    text-align: center;
+  }
+  header nav.main-nav ul li {
+    float: none;
+    display: inline;
+  }
+  header nav.main-nav ul li a {
+    display: inline-block;
+    margin-bottom: 0.75em;
   }
   .hero .cta-button {
     bottom: -5em;
@@ -934,6 +964,9 @@ footer ul {
   .hero .cta-button {
     margin-left: 0;
     bottom: -3em;
+  }
+  p.intro {
+    margin-bottom: 0.75em;
   }
 }
 .ir {

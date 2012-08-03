@@ -1,22 +1,62 @@
 @media only screen and (max-width: 1024px) {
 
-.hero {
-
-	img {
-	margin-left: 0;
+	.hero {
+	
+		img {
+		margin-left: 0;
+		}
+		
+		.cta-button {
+		margin-left: 0;
+		}
 	}
 	
-	.cta-button {
-	margin-left: 0;
-	}
-}
-
 }
 
 @media (max-width: 830px) {
 
 header {
+padding-top: 1.5em;
 padding-bottom: 7em;
+
+	.twocol,
+	.onecol {
+		float: none;
+		width: 200px;
+		margin: 0px auto;
+
+		a {
+			&.logo {
+				margin-bottom: 0.75em;
+			}
+		}		
+	}
+	
+	nav {
+		&.fourcol {
+			float: none;
+			width: 100%;
+			clear: both;
+		}
+		
+		&.main-nav {
+			ul {
+				position: static;
+				margin-top: 0;
+				text-align: center;
+				
+				li {
+					float: none;
+					display: inline;
+					
+					a {
+						display: inline-block;
+						margin-bottom: 0.75em;
+					}
+				}
+			}
+		}
+	}
 }
 
 .hero {
@@ -88,6 +128,12 @@ header {
 	.cta-button {
 	margin-left: 0;
 	bottom: -3em;
+	}
+}
+
+p {
+	&.intro {
+		margin-bottom: 0.75em;
 	}
 }
 
