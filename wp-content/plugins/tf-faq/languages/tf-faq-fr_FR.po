@@ -1,0 +1,234 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-02-23 15:20+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: JF Lussier\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: \\\\Fileserver\\websites\\Trendwerk\\test\\wp-content\\plugins\\faq-you\\\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-Country: CANADA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: \\\\Fileserver\\websites\\Trendwerk\\test\\wp-content\\plugins\\faq-you\n"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-options.php:8
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:204
+msgid "Options"
+msgstr "Options"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-options.php:10
+msgid "Use Javascript to show the FAQ"
+msgstr "Utiliser le Javascript pour afficher la FAQ"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-options.php:11
+msgid "The ability for users to ask questions. Insert this in a page with <code>[faq-ask-questions]</code>."
+msgstr "Offrir aux utilisateurs la possibilité de poser des questions. Insérer cette option dans une page avec <code>[faq-ask-questions]</code>."
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-options.php:12
+msgid "When a user submits a question, send an e-mail to this address:"
+msgstr "Lorsqu'un utilisateur pose une question, envoyer un courriel à cette adresse : "
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-options.php:13
+msgid "Save changes"
+msgstr "Sauvegarder les modifications"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-options.php:15
+msgid "Information"
+msgstr "Information"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:43
+msgid "Your question was submitted."
+msgstr "Votre question a été soumise."
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:55
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:59
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:62
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-add-question.php:11
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:48
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:61
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-askquestions.php:19
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-askquestions.php:28
+msgid "Question"
+msgstr "Question"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:60
+msgid "You are receiving this e-mail because someone asked a question via your website"
+msgstr "Vous recevez ce courriel parce que quelqu'un a posé une question sur votre site Web"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:61
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-add-question.php:10
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-categories.php:20
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-categories.php:28
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-askquestions.php:20
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-askquestions.php:29
+msgid "Category"
+msgstr "Catégorie"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:73
+msgid "Ask a question"
+msgstr "Poser une question"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:78
+msgid "What is your question about?"
+msgstr "Quel est l'objet de votre question?"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:86
+msgid "What is your question?"
+msgstr "Quelle est votre question?"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:89
+msgid "Ask"
+msgstr "Soumettre la question"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:105
+msgid "Search FAQ"
+msgstr "Rechercher dans la FAQ"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:110
+msgid "All"
+msgstr "Tout"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:118
+msgid "Search"
+msgstr "Recherche"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:134
+msgid "No results for your search: "
+msgstr "Aucun résultat pour votre recherche : "
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:189
+msgid "FAQ"
+msgstr "FAQ"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:190
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:21
+msgid "Questions"
+msgstr "Questions"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:195
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:197
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:199
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-askquestions.php:3
+msgid "Open questions"
+msgstr "Questions ouvertes"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:203
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-categories.php:3
+msgid "Categories"
+msgstr "Catégories"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:350
+msgid "General"
+msgstr "Général"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-add-category.php:4
+msgid "Name"
+msgstr "Nom"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-add-category.php:9
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-add-category.php:17
+msgid "Edit category"
+msgstr "Éditer la catégorie"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-add-category.php:9
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-add-category.php:17
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-categories.php:12
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-categories.php:66
+msgid "Add category"
+msgstr "Ajouter une catégorie"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-add-question.php:12
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:49
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:62
+msgid "Answer"
+msgstr "Réponse"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-add-question.php:17
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-add-question.php:25
+msgid "Edit question"
+msgstr "Éditer la question"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-add-question.php:17
+msgid "Add"
+msgstr "Ajouter"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-add-question.php:17
+msgid "question"
+msgstr "question"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-add-question.php:25
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:40
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:117
+msgid "Add question"
+msgstr "Ajouter une question"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-categories.php:8
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-categories.php:62
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:28
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:105
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-askquestions.php:8
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-askquestions.php:65
+msgid "Actions"
+msgstr "Actions"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-categories.php:9
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-categories.php:63
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:37
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:114
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-askquestions.php:9
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-askquestions.php:66
+msgid "Delete"
+msgstr "Supprimer"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-categories.php:11
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-categories.php:65
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:39
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:116
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-askquestions.php:11
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-askquestions.php:68
+msgid "Apply"
+msgstr "Appliquer"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-categories.php:54
+msgid "You did not create any categories yet."
+msgstr "Vous n'avez pas encore créé de catégorie."
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-categories.php:54
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:97
+msgid "Create one"
+msgstr "En créer une"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:12
+msgid "Create category"
+msgstr "Créer une catégorie"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:13
+msgid "You did not create a category yet. Please <a href=\"?page=faq-categories\">create one</a> first."
+msgstr "Vous n'a pas encore créé de catégorie. Commencez par <a href=\"?page=faq-categories\">en créer une</a>."
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:33
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:110
+msgid "Move to"
+msgstr "Déplacer vers"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:97
+msgid "You did not create any questions yet for this category."
+msgstr "Vous n'avez pas créé de question pour cette catégorie."
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-insert-category.php:54
+msgid "Insert FAQ"
+msgstr "Insérer la FAQ"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-askquestions.php:48
+msgid "Are you sure you want to delete this question?"
+msgstr "Êtes-vous certain de vouloir supprimer cette question?"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-askquestions.php:57
+msgid "There are no open questions."
+msgstr "Il n'y a aucune question ouverte."
+

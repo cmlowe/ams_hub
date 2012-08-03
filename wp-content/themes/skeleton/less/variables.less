@@ -1,0 +1,186 @@
+/* Links */
+@linkColor:             blue;
+
+/* Grays */
+@grayDarker:            #403d3d;
+@grayDark:              #595555;
+@gray:                  #736d6d;
+@grayLight:             #8c8585;
+@grayLighter:           #a69d9d;
+@white:                 #fff;
+
+/* Typography */
+@baseFontSize:          1em;
+@MuseoSlab:             "museo-slab", serif;
+@MuseoSans: 		    		"museo-sans", sans-serif;
+@baseLineHeight:        1.5em;
+@textColor:             black;
+@headerColor:           black;
+
+/* Weights (modeled after typekit) */
+@thin:      100;
+@light:     300;
+@regular:   400;
+@semibold:  600;
+@bold:      700;
+@extrabold: 800;
+@black      900;
+
+/* Buttons */
+.button {
+	
+}
+
+
+/* Input placeholder text color */
+@placeholderText:         @grayLight;
+
+/* Hr border color */
+@hrBorder:                @grayLighter;
+
+/* GLOBAL VALUES */
+
+/* Z-index master list */
+@zindexDropdown:          1000;
+@zindexPopover:           1010;
+@zindexTooltip:           1020;
+@zindexFixedNavbar:       1030;
+@zindexModalBackdrop:     1040;
+@zindexModal:             1050;
+
+.colorize(@variable, @color, @alpha: 1) when (@variable = background) {
+	background-color: @color;
+	background-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+}
+
+.colorize(@variable, @color, @alpha: 1) when (@variable = text) {
+	color: @color;
+	color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+}
+
+.colorize(@variable, @color, @alpha: 1) when (@variable = border) {
+	border-color: @color;
+	border-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+}
+
+/* Rounded Corners */
+.rounded (@args: 3px) {
+  -webkit-border-radius: @args;
+     -moz-border-radius: @args;
+          border-radius: @args;
+
+	-webkit-background-clip: padding-box;
+     -moz-background-clip: padding;
+	        background-clip: padding-box;
+}
+
+.rounded-custom (@tl, @tr, @br, @bl) {
+	-webkit-border-top-left-radius: @tl;
+	-webkit-border-top-right-radius: @tr; 
+	-webkit-border-bottom-right-radius: @br;
+	-webkit-border-bottom-left-radius: @bl;
+	
+	-moz-border-radius-topleft: @tl;
+	-moz-border-radius-topright: @tr;
+	-moz-border-radius-bottomright: @br;
+	-moz-border-radius-bottomleft: @bl;
+	
+	border-top-left-radius: @tl;
+	border-top-right-radius: @tr; 
+	border-bottom-right-radius: @br;
+	border-bottom-left-radius: @bl;
+
+	-webkit-background-clip: padding-box;
+     -moz-background-clip: padding;
+	        background-clip: padding-box;
+}
+
+/* Gradients */
+
+/* Gradients */
+
+.gradient (@start, @stop) {
+background-color: @start;
+background-image: -moz-linear-gradient(top,  fadeout(@start, 100%), fadeout(@stop, 50%) 100%); /* FF3.6+ */
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,fadeout(@start, 100%)), color-stop(100%, fadeout(@stop, 50%))); /* Chrome,Safari4+ */
+background-image: -webkit-linear-gradient(top,  fadeout(@start, 100%) 0%, fadeout(@stop, 50%) 100%); /* Chrome10+,Safari5.1+ */
+background-image: -o-linear-gradient(top,  fadeout(@start, 100%) 0%, fadeout(@stop, 50%) 100%); /* Opera 11.10+ */
+background-image: -ms-linear-gradient(top,  fadeout(@start, 100%) 0%, fadeout(@stop, 50%) 100%); /* IE10+ */
+background-image: linear-gradient(top, fadeout(@start, 100%) 0%, fadeout(@stop, 50%) 100%); /* W3C */
+}
+
+/* Text Shadow */
+
+.text-shadow (@args: 0 2px 2px rgba(0,0,0,.75)) {
+-webkit-text-shadow: @args;
+-moz-text-shadow: @args;
+text-shadow: @args;
+}
+
+/* Box Shadow */
+
+.box-shadow (@args) {
+-webkit-box-shadow: @args;
+-moz-box-shadow: @args;
+box-shadow: @args;
+}
+
+
+
+/* Transition */
+
+.transition(@propF: all) {
+	-webkit-transition: @propF 0.2s linear;
+	   -moz-transition: @propF 0.2s linear;
+	     -o-transition: @propF 0.2s linear;
+	        transition: @propF 0.2s linear;   
+}
+
+.transition(@propD, @propE) {
+	-webkit-transition: @propD 0.2s linear, @propE 0.2s linear;
+	   -moz-transition: @propD 0.2s linear, @propE 0.2s linear;
+	     -o-transition: @propD 0.2s linear, @propE 0.2s linear;
+	        transition: @propD 0.2s linear, @propE 0.2s linear;   
+}
+
+.transition(@propA, @propB, @propC) {
+	-webkit-transition: @propA 0.2s linear, @propB 0.2s linear, @propC 0.2s linear;
+	   -moz-transition: @propA 0.2s linear, @propB 0.2s linear, @propC 0.2s linear;
+	     -o-transition: @propA 0.2s linear, @propB 0.2s linear, @propC 0.2s linear;
+	        transition: @propA 0.2s linear, @propB 0.2s linear, @propC 0.2s linear;   
+}
+
+.buttonBase (@padTop: 1em, @padBot:  0.75em, @buttoncolor) {
+	.rounded(4px);
+	.gradient(@buttoncolor, darken(@buttoncolor, 20%));
+	.text-shadow(darken(@buttoncolor, 40%));
+	.transition();
+	display: inline-block;
+	padding: @padTop 0.75em @padBot;
+	margin: 0 2px 4px;
+	color: #fff;
+	font-weight: bold;
+	border: 0;
+	text-decoration: none;
+	border-bottom: 2px solid darken(@buttoncolor, 40%);
+
+	&:hover, &:focus {
+	.gradient(lighten(@buttoncolor, 10%), darken(@buttoncolor, 5%));
+	}
+	
+	&:active {
+	.gradient (darken(@buttoncolor, 10%), darken(@buttoncolor, 30%));
+	.boxshadow-inset ( 0, 1px, 2px, darken(@buttoncolor, 30%));
+	border-bottom: 2px solid darken(@buttoncolor, 20%);
+	}
+}
+
+.bordered (@borderColor) {
+border-bottom: 1px solid @borderColor;
+}
+
+.boxsizing (@sizing: border-box) {
+-webkit-box-sizing: @sizing; 
+   -moz-box-sizing: @sizing;
+        box-sizing: @sizing;
+}

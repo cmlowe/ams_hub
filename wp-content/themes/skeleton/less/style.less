@@ -1,0 +1,142 @@
+/* Styles for __________ */
+/*******************************************************************************/
+
+/* Site colors */
+
+/* Imports */
+@import "normalize.less";
+@import "variables.less";
+@import "1140.less";
+
+/* Typography */
+
+
+body {
+font-family: Helvetica;
+font-size: @baseFontSize;
+line-height: @baseLineHeight;
+color: black;
+}
+
+a {
+color: @linkColor;
+.transition (0.2s linear);
+	
+	&:visited {
+		color: @linkColor;
+	}
+	
+	&:hover, &:focus {
+	color: lighten(@linkColor, 10%);
+	text-decoration: none;
+	}
+	
+	&:active {
+		color: darken(@linkColor, 10%);
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+	font-weight: 300;
+	color: @headerColor;
+	font-family: Georgia, serif;
+
+	a {
+		text-decoration: none;
+	}
+
+}
+
+h1 {
+	font-size: @baseFontSize * 1.75;
+	line-height: @baseLineHeight / (@baseFontSize * 1.75);
+	margin: ((@baseLineHeight / (@baseFontSize * 1.3125))/2) 0;
+}
+
+h2 {
+	font-size: @baseFontSize * 1.3125;
+	line-height: @baseLineHeight / (@baseFontSize * 1.3125);
+	margin: (@baseLineHeight / (@baseFontSize * 1.3125)) 0 0;
+}
+
+h3 {
+	font-size: @baseFontSize * 1.125;
+	line-height: @baseLineHeight / (@baseFontSize * 1.125);
+	font-weight: 700;
+	margin: (@baseLineHeight / (@baseFontSize * 1.125)) 0 (@baseLineHeight / (@baseFontSize * 1.125)) / 4;
+}
+
+h4 {
+	margin: 0;
+	font-weight: 700;
+}
+
+h5 {
+	margin: 0;
+}
+
+h6 {
+	margin: 0;
+}
+
+p, ul, ol {
+	margin: (@baseLineHeight/2) 0;
+}
+
+em {}
+
+blockquote {}
+
+/* Typekit */
+
+.wf-active {
+	
+	body {
+		font-family: @MuseoSlab;
+	}
+	
+	h1, h2, h3, h4, h5, h6 {
+		font-family: @MuseoSlab;
+	}
+}
+
+/* Kula Styling ***************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import "helpers.less";
+@import "print.less";
+@import "respond.less";

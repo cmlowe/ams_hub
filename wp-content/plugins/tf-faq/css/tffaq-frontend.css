@@ -1,0 +1,113 @@
+.tffaq-category, .tffaq-ask-question, .tffaq-search {
+margin:10px 0px;
+padding:10px;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+-khtml-border-radius: 5px;
+border: 1px solid;
+border-radius: 5px;
+}
+
+#tffaq-questionForm p {
+margin-bottom: .5em;
+}
+
+.tffaq-header {
+background: -moz-linear-gradient(center bottom , #CFDFE9, #EFF8FF) repeat scroll 0 0 transparent;
+border-bottom: 1px solid #B0C8D7;
+border-radius: 5px;
+font-weight: bold;
+border-bottom: 1px solid;
+}
+
+h4.tffaq-header {padding-left:.5em;}
+
+#tffaq-question, #tffaq-questionForm p select, #tffaq-email {
+width: 90%;
+height: 5em;
+border: 1px solid;
+}
+
+#tffaq-email {
+height: 1.5em;
+font-size:1.5em;
+}
+
+#tffaq-questionForm p select, #tffaq-cat, #tffaq-search {
+height: 2em;
+padding: .3em 0;
+font-size:15px;
+}
+
+.tffaq-search form p {
+margin: 1em 0;
+}
+
+#tffaq-search {
+height: 20px;
+padding: .3em;
+margin: 1px;
+width: 41%;
+}
+
+#tffaq-cat {
+padding-bottom: 5px;
+margin-left:.3em;
+margin-right: .5em;
+width: 42%;
+}
+
+#tffaq-new-question, #tffaq-search-btn {
+background: url("../images/white-grad-active.png") repeat-x scroll left top #EEEEEE;
+border-radius: 10px ;
+border: 1px solid;
+cursor: pointer;
+font-size: 12px !important;
+line-height: 13px;
+padding: 3px 8px 3px 5px;
+text-decoration: none;
+}
+
+#tffaq-new-question:hover, #tffaq-search-btn:hover {
+border-color: #666666;
+color: #000000;
+}
+
+.tffaq-question, .tffaq-answer {
+margin-bottom: .5em;
+margin-left: 1.3em;
+}
+
+.tffaq-question a {
+text-decoration: underline;
+}
+
+.tffaq-answer {
+font-style:italic;
+}
+
+.error {
+background-color: #FFFFD5;
+border: 2px solid red;
+color: red;
+margin-top:.1em;
+padding: .1em;
+display: block;
+width: 90%;
+}
+
+#tffaq-tabs {
+display:none;
+}
+
+#tffaq-tabs.ui-tabs ul.ui-tabs-nav {
+margin-right:1.5em ! important;
+padding-left:.5em;
+padding-top:.5em ! important;
+}
+
+#tffaq-tabs.ui-tabs ul.ui-tabs-nav li {list-style:none;}
+
+.tffaq-message {text-align:center;padding:5px 0px;}
+
+.tffaq-ask-label {}

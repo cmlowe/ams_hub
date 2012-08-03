@@ -1,0 +1,231 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-02-23 15:20+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Kieshute <admin@klajoklis.lt>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: \\\\Fileserver\\websites\\Trendwerk\\test\\wp-content\\plugins\\faq-you\\\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: \\\\Fileserver\\websites\\Trendwerk\\test\\wp-content\\plugins\\faq-you\n"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-options.php:8
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:204
+msgid "Options"
+msgstr "Nuostatos"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-options.php:10
+msgid "Use Javascript to show the FAQ"
+msgstr "Naudoti Javascript rodant DUK"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-options.php:11
+msgid "The ability for users to ask questions. Insert this in a page with <code>[faq-ask-questions]</code>."
+msgstr "Vartotojų galimybė užduoti klausimą. Įterpti šį kodą [faq-ask-questions] ."
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-options.php:12
+msgid "When a user submits a question, send an e-mail to this address:"
+msgstr "Kai vartotojas užduoda klausima išsiūsti el. paštą šiuo adresu:"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-options.php:13
+msgid "Save changes"
+msgstr "Išsaugoti pakeitimus"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-options.php:15
+msgid "Information"
+msgstr "Informacija"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:43
+msgid "Your question was submitted."
+msgstr "Ačiū už pateiktą klausimą. Pasistengsime kaip įmanoma greičiau į jį atsakyti."
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:55
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:59
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:62
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-add-question.php:11
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:48
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:61
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-askquestions.php:19
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-askquestions.php:28
+msgid "Question"
+msgstr "Klausimas"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:60
+msgid "You are receiving this e-mail because someone asked a question via your website"
+msgstr "Jūs gavote šį laišką, nes kažkas Jūsų tinklapyje uždavė klausimą"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:61
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-add-question.php:10
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-categories.php:20
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-categories.php:28
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-askquestions.php:20
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-askquestions.php:29
+msgid "Category"
+msgstr "Kategorija"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:73
+msgid "Ask a question"
+msgstr "Užduoti klausimą"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:78
+msgid "What is your question about?"
+msgstr "Kokiai kategorijai priskirtumėte savo klausimą?"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:86
+msgid "What is your question?"
+msgstr "Koks Jūsų klausimas?"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:89
+msgid "Ask"
+msgstr "Klausti"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:105
+msgid "Search FAQ"
+msgstr "Jieškoti DUK"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:110
+msgid "All"
+msgstr "Visos kategorijos"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:118
+msgid "Search"
+msgstr "Ieškoti"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:134
+msgid "No results for your search: "
+msgstr "Jūsų paieškoje nerasta:"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:189
+msgid "FAQ"
+msgstr "DUK"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:190
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:21
+msgid "Questions"
+msgstr "Klausimai"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:195
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:197
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:199
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-askquestions.php:3
+msgid "Open questions"
+msgstr "Atviri klausimai"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:203
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-categories.php:3
+msgid "Categories"
+msgstr "Kategorijos"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq.php:350
+msgid "General"
+msgstr "Bendri duomenys"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-add-category.php:4
+msgid "Name"
+msgstr "Vardas"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-add-category.php:9
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-add-category.php:17
+msgid "Edit category"
+msgstr "Redaguoti kategoriją"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-add-category.php:9
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-add-category.php:17
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-categories.php:12
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-categories.php:66
+msgid "Add category"
+msgstr "Pridėti kategoriją"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-add-question.php:12
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:49
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:62
+msgid "Answer"
+msgstr "Atsakymas"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-add-question.php:17
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-add-question.php:25
+msgid "Edit question"
+msgstr "Redaguoti klausimą"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-add-question.php:17
+msgid "Add"
+msgstr "Pridėti"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-add-question.php:17
+msgid "question"
+msgstr "klausimas"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-add-question.php:25
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:40
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:117
+msgid "Add question"
+msgstr "Pridėti klausimą"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-categories.php:8
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-categories.php:62
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:28
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:105
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-askquestions.php:8
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-askquestions.php:65
+msgid "Actions"
+msgstr "Veiksmai"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-categories.php:9
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-categories.php:63
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:37
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:114
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-askquestions.php:9
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-askquestions.php:66
+msgid "Delete"
+msgstr "Ištrinti"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-categories.php:11
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-categories.php:65
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:39
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:116
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-askquestions.php:11
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-askquestions.php:68
+msgid "Apply"
+msgstr "Taikyti"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-categories.php:54
+msgid "You did not create any categories yet."
+msgstr "Jūs dar nesukūrėte jokios kategorijos."
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-categories.php:54
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:97
+msgid "Create one"
+msgstr "Sukurti"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:12
+msgid "Create category"
+msgstr "Sukurti kategoriją"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:13
+msgid "You did not create a category yet. Please <a href=\"?page=faq-categories\">create one</a> first."
+msgstr "Jūs dar nesukūrėte jokios kategorijos. Pirma reikia <a href=\"?page=faq-categories\">sukurti</a>."
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:33
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:110
+msgid "Move to"
+msgstr "Perkelti į"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-manage-questions.php:97
+msgid "You did not create any questions yet for this category."
+msgstr "Jūs dar šiai kategorijai nesukūrėte joko klausimo."
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-insert-category.php:54
+msgid "Insert FAQ"
+msgstr "Įterpti DUK"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-askquestions.php:48
+msgid "Are you sure you want to delete this question?"
+msgstr "Ar esate įsitikinę, kad norite ištrinti šį klausimą?"
+
+#: \\Fileserver\websites\Trendwerk\test\wp-content\plugins\faq-you/faq-askquestions.php:57
+msgid "There are no open questions."
+msgstr "Atvirų klausimų nėra."
+

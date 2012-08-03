@@ -1,0 +1,444 @@
+@import "normalize.less";
+@import "variables.less";
+
+@import "../fonts/open-sans/opensans.css";
+@import "../fonts/pt-sans/ptsans.css";
+@import "../fonts/pt-serif/ptserif.css";
+
+/* Typography */
+
+body,
+html,
+button,
+input,
+select,
+textarea {
+font-family: 'OpenSansRegular', Helvetica, Arial, sans-serif;
+font-size: 100%;
+line-height: 1.5;
+color: @typecolor;
+text-rendering: optimizeLegibility;
+
+	&.baseline {
+	//background: url(../img/24pt-baseline.png);
+	}
+}
+
+a {
+color: @blue;
+.transition();
+
+	&:hover,
+	&:focus {
+	color: lighten(@blue, 15%);
+	text-decoration: none;
+	}
+	
+	&:active {
+	color: darken(@blue, 15%);
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+font-family: 'PTSansRegular', Helvetica, serif;
+margin: 0;
+color: @greenAccent;
+}
+
+h1 {
+font-size: 3em;
+line-height: 1em;
+padding: 0.125em 0 0.375em;
+}
+
+h2 {
+font-size: 2em;
+line-height: 1em;
+padding: 0.625em 0;
+}
+
+h3 {
+font-size: 1.5em;
+line-height: 1em;
+padding: 0.5em 0;
+}
+
+h4 {
+}
+
+h5 {
+}
+
+h6 {
+}
+
+p {
+margin: 0;
+padding: 0 0 1.5em;
+
+	&.author {
+	font-family: 'PTSansRegular', Helvetica, serif;
+	font-size: 0.631578947368421em;
+	line-height: 1em;
+	}
+	
+	&.intro {
+	font-family: "PTSerifRegular", Goergia, Times New Roman, serif;
+	font-size: 1.5em;
+	line-height: 1.5em;
+	padding: 0;
+	
+		a {
+		font-style: italic;
+		}
+	}
+}
+
+ul, ol {
+margin: 0;
+padding: 0 0 1.5em 2em;
+}
+
+blockquote {
+font-family: "PTSerifRegular", Goergia, Times New Roman, serif;
+font-size: 2.375em;
+line-height: 1.2631578947684em;
+margin: 0;
+padding: 0em 0 1.2em 0;
+
+	p {
+	padding: 0;
+	}
+}
+
+img {
+max-width: 100%;
+height: auto;
+}
+
+.logo {
+display: block;
+float: left;
+overflow: visible;
+
+	img {
+	height: auto;
+	}
+}
+
+/* Forms */
+
+form {
+	
+	p {
+		overflow: hidden;
+		margin: 0;
+		padding: 0;
+	}
+	
+	br {
+		display: none;
+	}
+}
+
+label {
+	display: block;
+	padding: 1em 0 0.5em;
+}
+
+input, textarea {
+	.sizing();
+	width: 100%;
+	padding: 0.375em 0.5em;
+	-webkit-appearance: none;
+	border: 1px solid darken(#e9f5ef, 10%);
+	background-color: #e9f5ef;
+	.transition(background-color);
+	
+	&:focus {
+		outline: none;
+		background-color: darken(#e9f5ef, 5%);
+	}
+}
+
+input {
+	&[type="submit"] {
+		width: auto;
+		float: right;
+		margin: 1em 0 0.5em;
+		background-color: @blue;
+		border: 1px solid darken(@blue, 10%);
+		color: white;
+		
+		&:hover,
+		&:focus {
+		background-color: lighten(@blue, 15%);
+		border: 1px solid darken(@blue, 5%);
+		}
+		
+		&:active {
+		background-color: darken(@blue, 15%);
+		border: 1px solid darken(@blue, 25%);
+		}
+	}
+}
+
+div.wpcf7-response-output {
+	border: none;
+	clear: both;
+	margin: 1em 0 0.5em;
+	padding: 0.5em;
+	background-color: #f3f3dd;
+	border: 1px solid darken(#f3f3dd, 7%);
+	
+	&.wpcf7-validation-errors {
+		background-color: #f3dddd;
+		border: 1px solid darken(#f3dddd, 7%);
+	}
+	
+	&.wpcf7-mail-sent-ok {
+		border: 1px solid darken(#e9f5ef, 10%);
+		background-color: #e9f5ef;
+	}
+}
+
+.wpcf7-not-valid-tip-no-ajax {
+	padding: 0.5em 0;
+}
+
+header {
+padding: 3em 10px 6em;
+margin-bottom: 1.5em;
+background: transparent url(../img/wood-tile.jpg) repeat;
+border-bottom: 1.5em solid @greenAccent;
+
+	.row {
+	position: relative;
+	
+		&.nav {
+		margin-bottom: 1em;
+		}
+	}
+}
+
+/* Navigation */
+
+.main-nav ul {
+position: absolute;
+bottom: 0;
+margin: 0;
+padding-bottom: 0;
+
+	li {
+	float: left;
+	width: auto;
+	margin-right: 0.5em;
+	
+		&:last-child {
+		margin-right: 0;
+		}
+		
+		a {
+		font-family: 'PTSansRegular', Helvetica, serif;
+		font-weight: bold;
+		font-size: 1.25em;
+		line-height: 1em;
+		display: block;
+		text-decoration: none;
+		color: @typecolor;
+		border-bottom: 4px solid @greenAccent;
+		padding: 8px 4px 4px;
+		margin-bottom: -4px;
+		
+			&:hover,
+			&:focus {
+			color: lighten(@greenAccent, 5%);
+			border-color: lighten(@greenAccent, 5%);
+			}
+			
+			&:active {
+			color: @typecolor;
+			border-color: @typecolor;
+			}
+		}
+		
+		&.current_page_item {
+			
+			a {
+				background-color: @greenAccent;
+				color: white;
+			}
+		}
+	}
+}
+
+/* Homepage */
+
+.hero {
+position: relative;
+height: 350px;
+
+	img {
+	position: relative;
+	display: block;
+	margin-left: 9.5%;
+	border-bottom: 4px solid @greenAccent;
+	}
+	
+	.cta-button {
+	position: absolute;
+	.button (#148c4f, #fff);
+	margin-left: 9.5%;
+	left: 1em;
+	margin-top: -1.125em;
+	font-size: 1.25em;
+	}
+	
+	.content {
+	position: absolute;
+	display: block;
+	width: 30em;
+	bottom: -3.75em;
+	right: 0;
+	margin: 0 0 0.75em;
+	padding: 1em 2em;
+	background: rgba(0,39,159,0.5);
+	color: #fff;
+	
+		blockquote {
+		padding: 0;
+		
+			p {
+			text-indent: -0.5em;
+			}
+		
+			p.author {
+			padding: 1em 0 0;
+			text-indent: inherit;
+			}
+		}
+	}
+}
+
+/* Footer */
+
+footer {
+background: transparent url(../img/wood-tile.jpg) repeat;
+border-top: 1px solid #e9e0d1;
+
+	.footer-border {
+	display: block;
+	height: 1.5em;
+	background: rgba(0,10,134, 0.8);
+	}
+
+	p, ul {
+	font-size: 0.875em;
+	}
+}
+
+.footer-nav, .tool-nav {
+padding: 1em 0;
+
+	p, ul {
+	display: inline;
+	}
+	
+	p {
+	margin-right: 1em;
+	}
+
+	li {
+	display: inline;
+	
+		a {
+		color: @typecolor;
+		text-decoration: none;
+		border-left: 1px solid @typecolor;
+		padding-left: 0.375em;
+		margin-left: 0.375em;
+		line-height: 1em;
+		
+			&:hover,
+			&:focus {
+			color: @blue;
+			}
+			
+			&:active {
+			color: darken(@typecolor, 20%);
+			}
+		}
+		
+		&:first-child a {
+		border: none;
+		padding-left: 0;
+		margin-left: 0;
+		}
+	}
+}
+
+.footer-nav {
+}
+
+.tool-nav {
+text-align: right;
+}
+
+
+/* Internal Pages */
+
+.internal {
+
+	header {
+		border-bottom-width: 0.25em;
+		padding-bottom: 1.5em;
+	}
+
+	.main-nav ul {
+	margin: 0;
+	}
+}
+
+#subnav {
+	
+	ul {
+		padding-bottom: 1.5em;
+		
+		li {
+			
+			a {
+				color: @typecolor;
+				font-weight: bold;
+				border-bottom: 4px solid @greenAccent;
+				padding: 1em 0 4px;
+				display: block;
+				text-decoration: none;
+				
+				&:hover,
+				&:focus {
+					color: lighten(@greenAccent, 5%);
+					border-color: lighten(@greenAccent, 5%);
+				}
+				
+				&:active {
+					color: @typecolor;
+					border-color: @typecolor;
+				}
+			}
+			
+			&.current_page_item {
+				
+				a {
+					color: @greenAccent;
+					border-color: @greenAccent;
+				}
+			}
+		}
+	}
+}
+
+@import "tffaq.less";
+
+@import "grid.less";
+
+@import "mediaqueries.less";

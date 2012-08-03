@@ -1,0 +1,91 @@
+.clearfix {
+*zoom: 1;
+
+	&:before,
+	&:after {
+	display: table;
+	content: "";
+	}
+
+	&:after {
+	clear: both;
+	}
+}
+
+@colCount:		6;
+@colWidth:		15%;
+@colGap:		2%;
+
+
+.container {
+width: 100%;
+}
+
+.row {
+max-width: 1000px;
+margin: 0 auto;
+.clearfix();
+}
+
+.onecol, .twocol, .threecol, .fourcol, .fivecol {
+float: left;
+margin-right: @colGap;
+min-height: 1px;
+
+	&.last {
+	margin-right: 0;
+	}
+}
+
+.onecol {
+width: @colWidth;
+}
+
+.twocol {
+width: (@colWidth * 2) + @colGap;
+}
+
+.threecol {
+width: (@colWidth * 3) + @colGap * 2;
+}
+
+.fourcol {
+width: (@colWidth * 4) + @colGap * 3;
+}
+
+.fivecol {
+width: (@colWidth * 5) + @colGap * 4;
+}
+
+.sixcol {
+float: left;
+width: (@colWidth * 6) + @colGap * 5;
+}
+
+@media (max-width: 71em) {
+
+	.row {
+	padding: 0 10px;
+	}
+
+}
+
+@media (max-width: 60em) {
+
+
+}
+
+@media (max-width: 35em) {
+
+	.onecol, .twocol, .threecol, .fourcol, .fivecol {
+	float: none;
+	width: auto;
+	margin: 0;
+	min-height: 1px;
+	
+		&.last {
+		margin: 0;
+		}
+	}
+
+}
