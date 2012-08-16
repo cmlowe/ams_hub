@@ -26,11 +26,10 @@
 	
 	function kula_add_scripts(){
 		// header scripts
-		kula_enqueue_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');
+		// kula_enqueue_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');
 		kula_enqueue_script('modernizr', get_bloginfo('template_directory').'/js/libs/modernizr-2.5.3.min.js');
 
 		// footer scripts
-		kula_enqueue_script('plugins', get_bloginfo('template_directory').'/js/plugins.js', array(), false, true);
 		kula_enqueue_script('scripts', get_bloginfo('template_directory').'/js/scripts.js', array(), false, true);
 
 		do_action('kula_child_enqueue_scripts');

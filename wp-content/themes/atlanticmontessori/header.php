@@ -26,14 +26,21 @@
 		</div>
 		<div class="row">
 			<div class="sixcol hero">
-			<img src="http://placebox.es/830/350" alt="">
-				<a href="" class="cta-button">Enroll Now &raquo;</a>
-				<div class="content">
-					<blockquote>
-						<p>&ldquo;The hands are the instruments of man’s intelligence.&rdquo;</p>
-						<p class="author">Maria Montessori</p>
-					</blockquote>
-				</div>
+			<?php
+				$args = array( 'post_type' => 'home_slide', 'posts_per_page' => 1 );
+				$loop = new WP_Query( $args );
+				while ( $loop->have_posts() ) : $loop->the_post();
+					the_post_thumbnail();
+					echo '<a href="', get_bloginfo('url'), '/contact-us" class="cta-button">Enroll Now &raquo;</a>';
+					echo '<div class="content">';
+					echo '<blockquote>';
+					echo the_content();
+					echo '<p class="author">', the_title(), '</p>';
+					echo '</blockquote>';
+					echo '</div>';
+					
+				endwhile;
+			?>			
 			</div>
 		</div>
 	</header>

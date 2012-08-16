@@ -4,7 +4,7 @@ function ams_custom_post_init() {
 	//Home Slides
   $labels = array(
     'name' => 'Home Slides',
-    'singular_name' => 'Home Slides'
+    'singular_name' => 'Slide'
   );
   $args = array(
     'labels' => $labels,
