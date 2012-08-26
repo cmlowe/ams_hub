@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php get_header('internal'); ?>
   <div class="container page">
 		<div class="row">
 			<nav id="subnav" class="onecol">

@@ -27,11 +27,12 @@ text-rendering: optimizeLegibility;
 a {
 color: @blue;
 .transition();
+text-decoration: none;
+
 
 	&:hover,
 	&:focus {
 	color: lighten(@blue, 15%);
-	text-decoration: none;
 	}
 	
 	&:active {
@@ -54,7 +55,7 @@ padding: 0.125em 0 0.375em;
 h2 {
 font-size: 2em;
 line-height: 1em;
-padding: 0.625em 0;
+//padding: 0.625em 0;
 }
 
 h3 {
@@ -87,6 +88,7 @@ padding: 0 0 1.5em;
 	font-size: 1.5em;
 	line-height: 1.5em;
 	padding: 0;
+	margin-bottom: 1em;
 	
 		a {
 		font-style: italic;
@@ -276,7 +278,7 @@ padding-bottom: 0;
 
 .hero {
 position: relative;
-height: 350px;
+height: 400px;
 margin-top: 1.5em;
 
 	img {
@@ -305,6 +307,7 @@ margin-top: 1.5em;
 	padding: 1em 2em;
 	background: rgba(0,39,159,0.5);
 	color: #fff;
+	text-shadow: 0 1px 2px rgba(0,0,0,0.25);
 	
 		blockquote {
 		padding: 0;
@@ -403,6 +406,7 @@ text-align: right;
 #subnav {
 	
 	ul {
+		margin-top: 0.7em;
 		padding-bottom: 1.5em;
 		
 		li {

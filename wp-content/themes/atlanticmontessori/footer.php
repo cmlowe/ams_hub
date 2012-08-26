@@ -2,7 +2,7 @@
 	<div class="row">
 		<nav class="threecol footer-nav">
 			<ul>
-				<?php wp_list_pages('title_li=&include=6, 14, 16, 12, 10, 8&sort_column=ID'); ?>
+				<?php wp_list_pages('title_li=&include=6, 14, 12, 10, 8&sort_column=ID'); ?>
 			</ul>
 		</nav>
 		<nav class="threecol tool-nav last">
