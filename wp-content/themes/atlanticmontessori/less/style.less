@@ -27,12 +27,13 @@ text-rendering: optimizeLegibility;
 a {
 color: @blue;
 .transition();
-text-decoration: none;
+text-decoration: underline;
 
 
 	&:hover,
 	&:focus {
 	color: lighten(@blue, 15%);
+	text-decoration: none;
 	}
 	
 	&:active {
@@ -103,8 +104,8 @@ padding: 0 0 1.5em 2em;
 
 blockquote {
 font-family: "PTSerifRegular", Goergia, Times New Roman, serif;
-font-size: 2.375em;
-line-height: 1.2631578947684em;
+font-size: 1.5em;
+line-height: 1.25em;
 margin: 0;
 padding: 0em 0 1.2em 0;
 
@@ -122,6 +123,7 @@ height: auto;
 display: block;
 float: left;
 overflow: visible;
+width: 100%;
 
 	img {
 	height: auto;
@@ -136,6 +138,10 @@ overflow: visible;
 .alignleft {
 	float: left;
 	margin: 0 1.5em 0.5em 0;
+}
+
+article img {
+	border-bottom: 4px solid @greenAccent;
 }
 
 /* Forms */
@@ -258,14 +264,14 @@ padding-bottom: 0;
 		display: block;
 		text-decoration: none;
 		color: @typecolor;
-		border-bottom: 4px solid @greenAccent;
-		padding: 8px 4px 4px;
+		padding: 8px 4px 8px;
 		margin-bottom: -4px;
 		
 			&:hover,
 			&:focus {
+			padding-bottom: 4px;
 			color: lighten(@greenAccent, 5%);
-			border-color: lighten(@greenAccent, 5%);
+			border-bottom: 4px solid lighten(@greenAccent, 5%);
 			}
 			
 			&:active {
@@ -277,8 +283,9 @@ padding-bottom: 0;
 		&.current_page_item {
 			
 			a {
-				background-color: @greenAccent;
-				color: white;
+			padding-bottom: 4px;
+			color: @greenAccent;
+			border-bottom: 4px solid @greenAccent;
 			}
 		}
 	}
@@ -288,13 +295,14 @@ padding-bottom: 0;
 
 .hero {
 position: relative;
-height: 400px;
+height: 320px;
 margin-top: 1.5em;
 
 	img {
 	position: relative;
 	display: block;
 	margin-left: 9.5%;
+	width: 90.5%;
 	border-bottom: 4px solid @greenAccent;
 	}
 	
@@ -310,9 +318,9 @@ margin-top: 1.5em;
 	.content {
 	position: absolute;
 	display: block;
-	width: 30em;
-	bottom: -3.75em;
-	right: 0;
+	width: 25em;
+	bottom: -3.25em;
+	right: -2em;
 	margin: 0 0 0.75em;
 	padding: 1em 2em;
 	background: rgba(0,39,159,0.5);
@@ -321,6 +329,9 @@ margin-top: 1.5em;
 	
 		blockquote {
 		padding: 0;
+		font-size: 1.25em;
+		line-height: 1.2em;
+		
 		
 			p {
 			text-indent: -0.5em;
@@ -347,7 +358,7 @@ border-top: 1px solid #e9e0d1;
 	}
 
 	p, ul {
-	font-size: 0.875em;
+	font-size: 0.75em;
 	}
 }
 
@@ -424,7 +435,7 @@ text-align: right;
 			a {
 				color: @typecolor;
 				font-weight: bold;
-				border-bottom: 4px solid @greenAccent;
+				border-bottom: 2px solid @greenAccent;
 				padding: 1em 0 4px;
 				display: block;
 				text-decoration: none;

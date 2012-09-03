@@ -25,6 +25,7 @@
 		kula_enqueue_script('kulaslider', get_bloginfo('stylesheet_directory').'/js/jquery.kulaslider.js', array(), false, true);
 		kula_enqueue_script('child_scripts', get_bloginfo('stylesheet_directory').'/js/child_scripts.js', array('kulaslider'), false, true);
 		kula_enqueue_script('retina', get_bloginfo('stylesheet_directory').'/js/retina.js', array(), false, false);
+		kula_enqueue_script('respond', get_bloginfo('stylesheet_directory').'/js/respond.min.js', array(), false, false);
 	}
 	add_action('kula_child_enqueue_scripts', 'ams_add_scripts');
 

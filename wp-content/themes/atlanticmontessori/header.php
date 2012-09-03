@@ -15,6 +15,7 @@
   <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
  	<header>
  		<div class="row nav">
+ 			<div class="onecol"></div>
  			<div class="twocol">
 		 		<a href="/" class="logo"><img src="<?php _e(get_stylesheet_directory_uri()); ?>/img/logo-ams.png" alt="Atlantic Montessori School"></a>
 	 		</div>
@@ -25,6 +26,7 @@
 			</nav>
 		</div>
 		<div class="row">
+ 			<div class="onecol"></div>
 			<div class="sixcol hero">
 			<?php
 				$args = array( 'post_type' => 'home_slide', 'posts_per_page' => 1 );
@@ -42,5 +44,7 @@
 				endwhile;
 			?>			
 			</div>
+ 			<div class="onecol last"></div>
+			
 		</div>
 	</header>

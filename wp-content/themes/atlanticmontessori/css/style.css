@@ -398,11 +398,12 @@ a {
   -webkit-transition: all 0.2s ease-in;
   -moz-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
-  text-decoration: none;
+  text-decoration: underline;
 }
 a:hover,
 a:focus {
   color: #003aec;
+  text-decoration: none;
 }
 a:active {
   color: #001453;
@@ -457,8 +458,8 @@ ol {
 }
 blockquote {
   font-family: "PTSerifRegular", Goergia, Times New Roman, serif;
-  font-size: 2.375em;
-  line-height: 1.2631578947684em;
+  font-size: 1.5em;
+  line-height: 1.25em;
   margin: 0;
   padding: 0em 0 1.2em 0;
 }
@@ -473,6 +474,7 @@ img {
   display: block;
   float: left;
   overflow: visible;
+  width: 100%;
 }
 .logo img {
   height: auto;
@@ -484,6 +486,9 @@ img {
 .alignleft {
   float: left;
   margin: 0 1.5em 0.5em 0;
+}
+article img {
+  border-bottom: 4px solid #19ae62;
 }
 /* Forms */
 form p {
@@ -588,33 +593,35 @@ header .row.nav {
   display: block;
   text-decoration: none;
   color: #4d4848;
-  border-bottom: 4px solid #19ae62;
-  padding: 8px 4px 4px;
+  padding: 8px 4px 8px;
   margin-bottom: -4px;
 }
 .main-nav ul li a:hover,
 .main-nav ul li a:focus {
+  padding-bottom: 4px;
   color: #1cc46f;
-  border-color: #1cc46f;
+  border-bottom: 4px solid #1cc46f;
 }
 .main-nav ul li a:active {
   color: #4d4848;
   border-color: #4d4848;
 }
 .main-nav ul li.current_page_item a {
-  background-color: #19ae62;
-  color: white;
+  padding-bottom: 4px;
+  color: #19ae62;
+  border-bottom: 4px solid #19ae62;
 }
 /* Homepage */
 .hero {
   position: relative;
-  height: 400px;
+  height: 320px;
   margin-top: 1.5em;
 }
 .hero img {
   position: relative;
   display: block;
   margin-left: 9.5%;
+  width: 90.5%;
   border-bottom: 4px solid #19ae62;
 }
 .hero .cta-button {
@@ -657,9 +664,9 @@ header .row.nav {
 .hero .content {
   position: absolute;
   display: block;
-  width: 30em;
-  bottom: -3.75em;
-  right: 0;
+  width: 25em;
+  bottom: -3.25em;
+  right: -2em;
   margin: 0 0 0.75em;
   padding: 1em 2em;
   background: rgba(0, 39, 159, 0.5);
@@ -668,6 +675,8 @@ header .row.nav {
 }
 .hero .content blockquote {
   padding: 0;
+  font-size: 1.25em;
+  line-height: 1.2em;
 }
 .hero .content blockquote p {
   text-indent: -0.5em;
@@ -688,7 +697,7 @@ footer .footer-border {
 }
 footer p,
 footer ul {
-  font-size: 0.875em;
+  font-size: 0.75em;
 }
 .footer-nav,
 .tool-nav {
@@ -751,7 +760,7 @@ footer ul {
 #subnav ul li a {
   color: #4d4848;
   font-weight: bold;
-  border-bottom: 4px solid #19ae62;
+  border-bottom: 2px solid #19ae62;
   padding: 1em 0 4px;
   display: block;
   text-decoration: none;
@@ -853,7 +862,7 @@ footer ul {
 .fourcol,
 .fivecol {
   float: left;
-  margin-right: 2%;
+  margin-right: 3%;
   min-height: 1px;
 }
 .onecol.last,
@@ -864,23 +873,23 @@ footer ul {
   margin-right: 0;
 }
 .onecol {
-  width: 15%;
+  width: 9.875%;
 }
 .twocol {
-  width: 32%;
+  width: 22.75%;
 }
 .threecol {
-  width: 49%;
+  width: 35.625%;
 }
 .fourcol {
-  width: 66%;
+  width: 48.5%;
 }
 .fivecol {
-  width: 83%;
+  width: 61.375%;
 }
 .sixcol {
   float: left;
-  width: 100%;
+  width: 74.25%;
 }
 @media (max-width: 71em) {
   .row {
