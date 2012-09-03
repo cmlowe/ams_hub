@@ -904,7 +904,8 @@ footer ul {
   .twocol,
   .threecol,
   .fourcol,
-  .fivecol {
+  .fivecol,
+  .sixcol {
     float: none;
     width: auto;
     margin: 0;
@@ -914,7 +915,8 @@ footer ul {
   .twocol.last,
   .threecol.last,
   .fourcol.last,
-  .fivecol.last {
+  .fivecol.last,
+  .sixcol.last {
     margin: 0;
   }
 }
@@ -959,10 +961,23 @@ footer ul {
     display: inline-block;
     margin-bottom: 0.75em;
   }
+  .hero {
+    float: none;
+    margin: 0 auto;
+    height: 280px;
+  }
+  .hero img {
+    margin: 0;
+    width: 100%;
+  }
+  .hero .content {
+    position: static;
+    width: auto;
+    padding-top: 2em;
+  }
   .hero .cta-button {
-    bottom: -5em;
     margin-left: 0;
-    left: 0;
+    left: 1em;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -981,7 +996,7 @@ footer ul {
     width: 100%;
   }
   .hero .cta-button {
-    margin-left: 10px;
+    margin-left: 0;
   }
 }
 @media only screen and (max-width: 35em) {
@@ -990,17 +1005,13 @@ footer ul {
   }
   .hero .content {
     width: 100%;
-    padding: 0;
+    padding: 1.5em 0 0 0;
     position: static;
   }
   .hero .content blockquote {
     padding: 0.5em 1.5em;
     font-size: 1.5em;
     line-height: 1.25em;
-  }
-  .hero .cta-button {
-    margin-left: 0;
-    bottom: -3em;
   }
   p.intro {
     margin-bottom: 0.75em;
