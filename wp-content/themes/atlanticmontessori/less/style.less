@@ -51,13 +51,28 @@ color: @greenAccent;
 h1 {
 font-size: 3em;
 line-height: 1em;
-margin: 0.125em 0 0.375em;
+margin: 0.5em 0 0.25em;
 }
 
 h2 {
 font-size: 2em;
 line-height: 1em;
-//padding: 0.625em 0;
+margin: 0.25em 0 0.25em;
+
+	a {
+		color: @greenAccent;
+		text-decoration: none;
+		
+		&:hover,
+		&:focus {
+			color: lighten(@greenAccent, 10%);
+		}
+
+		&:active {
+			color: darken(@greenAccent, 5%);
+		}
+
+	}
 }
 
 h3 {
@@ -103,6 +118,11 @@ margin: 0;
 padding: 0 0 1.5em 2em;
 }
 
+em {
+	font-family: "PTSerifItalic";
+	font-style: normal;
+}
+
 blockquote {
 font-family: "PTSerifRegular", Goergia, Times New Roman, serif;
 font-size: 1.5em;
@@ -113,6 +133,11 @@ padding: 0em 0 1.2em 0;
 	p {
 	padding: 0;
 	}
+}
+
+strong {
+	font-family: "PTSerifBold";
+	font-weight: normal;
 }
 
 img {
@@ -338,6 +363,7 @@ margin-top: 1.5em;
 		
 			p {
 			text-indent: -0.5em;
+			margin-bottom: 0;
 			}
 		
 			p.author {

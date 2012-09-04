@@ -37,7 +37,7 @@
 					echo 	'<p class="author">', the_title(), '</p>';
 					echo 	'</blockquote>';
 					echo '</div>';
-					echo '<a href="', get_bloginfo('url'), '/contact-us" class="cta-button">Enroll Now &raquo;</a>';
+					echo '<a href="', get_bloginfo('url'), '/contact-us" class="cta-button">Apply Now &raquo;</a>';
 					
 				endwhile;
 			?>			

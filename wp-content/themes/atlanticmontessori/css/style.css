@@ -62,8 +62,6 @@ html {
   /* 1 */
 
   -webkit-text-size-adjust: 100%;
-  /* 2 */
-
   -ms-text-size-adjust: 100%;
   /* 2 */
 
@@ -271,8 +269,6 @@ textarea {
   /* 2 */
 
   vertical-align: baseline;
-  /* 3 */
-
   *vertical-align: middle;
   /* 3 */
 
@@ -328,8 +324,6 @@ input[type="radio"] {
   /* 2 */
 
   *height: 13px;
-  /* 3 */
-
   *width: 13px;
   /* 3 */
 
@@ -428,11 +422,23 @@ h6 {
 h1 {
   font-size: 3em;
   line-height: 1em;
-  margin: 0.125em 0 0.375em;
+  margin: 0.5em 0 0.25em;
 }
 h2 {
   font-size: 2em;
   line-height: 1em;
+  margin: 0.25em 0 0.25em;
+}
+h2 a {
+  color: #19ae62;
+  text-decoration: none;
+}
+h2 a:hover,
+h2 a:focus {
+  color: #1fdb7b;
+}
+h2 a:active {
+  color: #169855;
 }
 h3 {
   font-size: 1.5em;
@@ -463,6 +469,10 @@ ol {
   margin: 0;
   padding: 0 0 1.5em 2em;
 }
+em {
+  font-family: "PTSerifItalic";
+  font-style: normal;
+}
 blockquote {
   font-family: "PTSerifRegular", Goergia, Times New Roman, serif;
   font-size: 1.5em;
@@ -472,6 +482,10 @@ blockquote {
 }
 blockquote p {
   padding: 0;
+}
+strong {
+  font-family: "PTSerifBold";
+  font-weight: normal;
 }
 img {
   max-width: 100%;
@@ -688,6 +702,7 @@ header .row.nav {
 }
 .hero .content blockquote p {
   text-indent: -0.5em;
+  margin-bottom: 0;
 }
 .hero .content blockquote p.author {
   padding: 1.5em 0 0;
@@ -855,7 +870,6 @@ footer ul {
 .row {
   max-width: 1000px;
   margin: 0 auto;
-  *zoom: 1;
   *zoom: 1;
 }
 .row:before,
