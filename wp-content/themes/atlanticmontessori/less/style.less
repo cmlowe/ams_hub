@@ -44,13 +44,14 @@ text-decoration: underline;
 h1, h2, h3, h4, h5, h6 {
 font-family: 'PTSansRegular', Helvetica, serif;
 margin: 0;
+padding: 0;
 color: @greenAccent;
 }
 
 h1 {
 font-size: 3em;
 line-height: 1em;
-padding: 0.125em 0 0.375em;
+margin: 0.125em 0 0.375em;
 }
 
 h2 {
@@ -75,8 +76,8 @@ h6 {
 }
 
 p {
-margin: 0;
-padding: 0 0 1.5em;
+padding: 0;
+margin: 0 0 1.5em;
 
 	&.author {
 	font-family: 'PTSansRegular', Helvetica, serif;
@@ -138,6 +139,10 @@ width: 100%;
 .alignleft {
 	float: left;
 	margin: 0 1.5em 0.5em 0;
+}
+
+.alignnone {
+	margin-top: 1.5em;
 }
 
 article img {
@@ -437,6 +442,7 @@ text-align: right;
 				padding: 1em 0 4px;
 				display: block;
 				text-decoration: none;
+				font-size: 0.875em;
 				
 				&:hover,
 				&:focus {

@@ -422,12 +422,13 @@ h5,
 h6 {
   font-family: 'PTSansRegular', Helvetica, serif;
   margin: 0;
+  padding: 0;
   color: #19ae62;
 }
 h1 {
   font-size: 3em;
   line-height: 1em;
-  padding: 0.125em 0 0.375em;
+  margin: 0.125em 0 0.375em;
 }
 h2 {
   font-size: 2em;
@@ -439,8 +440,8 @@ h3 {
   padding: 0.5em 0;
 }
 p {
-  margin: 0;
-  padding: 0 0 1.5em;
+  padding: 0;
+  margin: 0 0 1.5em;
 }
 p.author {
   font-family: 'PTSansRegular', Helvetica, serif;
@@ -492,6 +493,9 @@ img {
 .alignleft {
   float: left;
   margin: 0 1.5em 0.5em 0;
+}
+.alignnone {
+  margin-top: 1.5em;
 }
 article img {
   border-bottom: 4px solid #19ae62;
@@ -768,6 +772,7 @@ footer ul {
   padding: 1em 0 4px;
   display: block;
   text-decoration: none;
+  font-size: 0.875em;
 }
 #subnav ul li a:hover,
 #subnav ul li a:focus {
