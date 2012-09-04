@@ -1,3 +1,25 @@
+@media only screen and (max-width: 1150px) {
+	
+	header {
+		.row {
+			&.nav {
+				left: 0;
+			}
+		}
+	}
+	
+}
+
+@media only screen and (max-width: 1055px) {
+
+	.hero {
+		.content {
+			right: 1em;
+		}
+	}
+
+}
+
 @media only screen and (max-width: 1024px) {
 
 	.hero {
@@ -15,9 +37,13 @@
 
 @media (max-width: 830px) {
 
+body {
+	font-size: 87.5%;
+}
+
 header {
 padding-top: 1.5em;
-padding-bottom: 7em;
+padding-bottom: 3em;
 
 	.twocol,
 	.onecol {
@@ -30,6 +56,12 @@ padding-bottom: 7em;
 				margin-bottom: 0.75em;
 			}
 		}		
+	}
+	
+	.sixcol {
+		float: none;
+		width: auto;
+		clear: both;
 	}
 	
 	nav {
@@ -62,7 +94,6 @@ padding-bottom: 7em;
 .hero {
 	float: none;
 	margin: 0 auto;
-	height: 280px;
 	
 	img {
 		margin: 0;
@@ -72,12 +103,21 @@ padding-bottom: 7em;
 	.content {
 		position: static;
 		width: auto;
-		padding-top: 2em;
+		padding: 1em 1em 1em 2em;
+		
+		blockquote {
+		
+			p.author {
+				padding-top: 1em;
+			}
+		}
 	}
 	
 	.cta-button {
 	margin-left: 0;
-	left: 1em;
+	left: inherit;
+	right: 1em;
+	margin-top: -1.75em;
 	}
 }
 

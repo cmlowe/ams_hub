@@ -19,7 +19,7 @@
  			<div class="twocol">
 		 		<a href="/" class="logo"><img src="<?php _e(get_stylesheet_directory_uri()); ?>/img/logo-ams.png" alt="Atlantic Montessori School"></a>
 	 		</div>
-	  		<nav class="fivecol main-nav last">
+	  		<nav class="sixcol main-nav last">
 				<ul>
 					<?php wp_list_pages('title_li=&include=6, 14, 12, 10, 8&sort_column=ID'); ?>
 				</ul>

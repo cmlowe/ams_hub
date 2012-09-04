@@ -62,6 +62,8 @@ html {
   /* 1 */
 
   -webkit-text-size-adjust: 100%;
+  /* 2 */
+
   -ms-text-size-adjust: 100%;
   /* 2 */
 
@@ -269,6 +271,8 @@ textarea {
   /* 2 */
 
   vertical-align: baseline;
+  /* 3 */
+
   *vertical-align: middle;
   /* 3 */
 
@@ -324,6 +328,8 @@ input[type="radio"] {
   /* 2 */
 
   *height: 13px;
+  /* 3 */
+
   *width: 13px;
   /* 3 */
 
@@ -569,6 +575,7 @@ header .row {
 }
 header .row.nav {
   margin-bottom: 1em;
+  left: -65px;
 }
 /* Navigation */
 .main-nav ul {
@@ -614,14 +621,12 @@ header .row.nav {
 /* Homepage */
 .hero {
   position: relative;
-  height: 320px;
   margin-top: 1.5em;
 }
 .hero img {
   position: relative;
   display: block;
-  margin-left: 9.5%;
-  width: 90.5%;
+  width: 100%;
   border-bottom: 4px solid #19ae62;
 }
 .hero .cta-button {
@@ -641,7 +646,6 @@ header .row.nav {
   background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
   background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
   background-image: linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
-  margin-left: 9.5%;
   left: 1em;
   margin-top: -1.125em;
   font-size: 1.25em;
@@ -664,25 +668,25 @@ header .row.nav {
 .hero .content {
   position: absolute;
   display: block;
-  width: 25em;
+  width: 30em;
   bottom: -3.25em;
   right: -2em;
   margin: 0 0 0.75em;
-  padding: 1em 2em;
-  background: rgba(0, 39, 159, 0.5);
+  padding: 1em 3em;
+  background: rgba(0, 39, 159, 0.6);
   color: #fff;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 .hero .content blockquote {
   padding: 0;
-  font-size: 1.25em;
-  line-height: 1.2em;
+  font-size: 1.5em;
+  line-height: 1.25em;
 }
 .hero .content blockquote p {
   text-indent: -0.5em;
 }
 .hero .content blockquote p.author {
-  padding: 1em 0 0;
+  padding: 1.5em 0 0;
   text-indent: inherit;
 }
 /* Footer */
@@ -847,6 +851,7 @@ footer ul {
   max-width: 1000px;
   margin: 0 auto;
   *zoom: 1;
+  *zoom: 1;
 }
 .row:before,
 .row:after {
@@ -891,6 +896,14 @@ footer ul {
   float: left;
   width: 74.25%;
 }
+.sevencol {
+  float: left;
+  width: 87.125%;
+}
+.eightcol {
+  float: left;
+  width: 100%;
+}
 @media (max-width: 71em) {
   .row {
     padding: 0 10px;
@@ -920,6 +933,16 @@ footer ul {
     margin: 0;
   }
 }
+@media only screen and (max-width: 1150px) {
+  header .row.nav {
+    left: 0;
+  }
+}
+@media only screen and (max-width: 1055px) {
+  .hero .content {
+    right: 1em;
+  }
+}
 @media only screen and (max-width: 1024px) {
   .hero img {
     margin-left: 0;
@@ -929,9 +952,12 @@ footer ul {
   }
 }
 @media (max-width: 830px) {
+  body {
+    font-size: 87.5%;
+  }
   header {
     padding-top: 1.5em;
-    padding-bottom: 7em;
+    padding-bottom: 3em;
   }
   header .twocol,
   header .onecol {
@@ -942,6 +968,11 @@ footer ul {
   header .twocol a.logo,
   header .onecol a.logo {
     margin-bottom: 0.75em;
+  }
+  header .sixcol {
+    float: none;
+    width: auto;
+    clear: both;
   }
   header nav.fourcol {
     float: none;
@@ -964,7 +995,6 @@ footer ul {
   .hero {
     float: none;
     margin: 0 auto;
-    height: 280px;
   }
   .hero img {
     margin: 0;
@@ -973,11 +1003,16 @@ footer ul {
   .hero .content {
     position: static;
     width: auto;
-    padding-top: 2em;
+    padding: 1em 1em 1em 2em;
+  }
+  .hero .content blockquote p.author {
+    padding-top: 1em;
   }
   .hero .cta-button {
     margin-left: 0;
-    left: 1em;
+    left: inherit;
+    right: 1em;
+    margin-top: -1.75em;
   }
 }
 @media only screen and (max-width: 768px) {

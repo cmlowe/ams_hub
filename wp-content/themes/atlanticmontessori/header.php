@@ -15,31 +15,29 @@
   <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
  	<header>
  		<div class="row nav">
- 			<div class="onecol"></div>
  			<div class="twocol">
 		 		<a href="/" class="logo"><img src="<?php _e(get_stylesheet_directory_uri()); ?>/img/logo-ams.png" alt="Atlantic Montessori School"></a>
 	 		</div>
-	  		<nav class="fourcol main-nav last">
+	  		<nav class="sixcol main-nav last">
 				<ul>
 					<?php wp_list_pages('title_li=&include=6, 14, 12, 10, 8&sort_column=ID'); ?>
 				</ul>
 			</nav>
 		</div>
 		<div class="row">
- 			<div class="onecol"></div>
-			<div class="sixcol hero">
+			<div class="eightcol hero">
 			<?php
 				$args = array( 'post_type' => 'home_slide', 'posts_per_page' => 1 );
 				$loop = new WP_Query( $args );
 				while ( $loop->have_posts() ) : $loop->the_post();
 					the_post_thumbnail();
-					echo '<a href="', get_bloginfo('url'), '/contact-us" class="cta-button">Enroll Now &raquo;</a>';
 					echo '<div class="content">';
-					echo '<blockquote>';
-					echo the_content();
-					echo '<p class="author">', the_title(), '</p>';
-					echo '</blockquote>';
+					echo 	'<blockquote>';
+					echo 		the_content();
+					echo 	'<p class="author">', the_title(), '</p>';
+					echo 	'</blockquote>';
 					echo '</div>';
+					echo '<a href="', get_bloginfo('url'), '/contact-us" class="cta-button">Enroll Now &raquo;</a>';
 					
 				endwhile;
 			?>			
