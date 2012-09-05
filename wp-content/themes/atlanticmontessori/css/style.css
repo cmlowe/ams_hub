@@ -422,7 +422,7 @@ h6 {
 h1 {
   font-size: 3em;
   line-height: 1em;
-  margin: 0.5em 0 0.25em;
+  margin: 0 0 0.25em;
 }
 h2 {
   font-size: 2em;
@@ -443,7 +443,7 @@ h2 a:active {
 h3 {
   font-size: 1.5em;
   line-height: 1em;
-  padding: 0.5em 0;
+  margin: 0.25em 0 0.5em;
 }
 p {
   padding: 0;
@@ -498,7 +498,7 @@ strong {
 hr {
   height: 0;
   border: none;
-  border-top: 1px solid #c6e5d6;
+  border-top: 1px solid rgba(25, 174, 98, 0.19999999999999996);
   padding: 0 0 0.75em 0;
   margin: 0.75em 0 0;
 }
@@ -513,7 +513,7 @@ table thead {
   text-align: left;
 }
 table tbody {
-  border-top: 1px solid #19ae62;
+  border-top: 1px solid rgba(25, 174, 98, 0.19999999999999996);
 }
 table th {
   font-family: "PTSansBold";
@@ -547,10 +547,25 @@ article img {
 .map {
   float: right;
   width: 100%;
+  border: 1px solid rgba(25, 174, 98, 0.4);
+  margin-bottom: 0.75em;
 }
 .map iframe {
   width: 100%;
   height: 320px;
+  display: block;
+}
+.alert {
+  padding: 0.75em 1em;
+  background: rgba(25, 174, 98, 0.6);
+  color: white;
+  border-bottom: 4px solid #19ae62;
+}
+.alert p {
+  padding: 0;
+  margin: 0;
+  font-family: "PTSerifItalic";
+  font-size: 1.25em;
 }
 /* Forms */
 form p {
@@ -630,7 +645,7 @@ header .row {
   position: relative;
 }
 header .row.nav {
-  margin-bottom: 1em;
+  margin-bottom: 2em;
   left: -65px;
 }
 /* Navigation */
@@ -677,7 +692,6 @@ header .row.nav {
 /* Homepage */
 .hero {
   position: relative;
-  margin-top: 1.5em;
 }
 .hero img {
   position: relative;
@@ -724,7 +738,7 @@ header .row.nav {
 .hero .content {
   position: absolute;
   display: block;
-  width: 30em;
+  width: 35em;
   bottom: -3.25em;
   right: -2em;
   margin: 0 0 0.75em;
@@ -745,6 +759,9 @@ header .row.nav {
 .hero .content blockquote p.author {
   padding: 1.5em 0 0;
   text-indent: inherit;
+}
+.page article.fivecol {
+  min-height: 21em;
 }
 /* Footer */
 footer {
@@ -975,7 +992,9 @@ footer ul {
   .threecol,
   .fourcol,
   .fivecol,
-  .sixcol {
+  .sixcol,
+  .sevencol,
+  .eightcol {
     float: none;
     width: auto;
     margin: 0;
@@ -986,7 +1005,9 @@ footer ul {
   .threecol.last,
   .fourcol.last,
   .fivecol.last,
-  .sixcol.last {
+  .sixcol.last,
+  .sevencol.last,
+  .eightcol.last {
     margin: 0;
   }
 }
@@ -1008,7 +1029,7 @@ footer ul {
     margin-left: 0;
   }
 }
-@media (max-width: 830px) {
+@media (max-width: 54em) {
   body {
     font-size: 87.5%;
   }
@@ -1090,6 +1111,9 @@ footer ul {
   .hero .cta-button {
     margin-left: 0;
   }
+  .page article.fivecol {
+    min-height: 1px;
+  }
 }
 @media only screen and (max-width: 35em) {
   header .main-nav ul {
@@ -1107,6 +1131,10 @@ footer ul {
   }
   p.intro {
     margin-bottom: 0.75em;
+  }
+  .alignleft,
+  .alignright {
+    max-width: 48%;
   }
 }
 .ir {

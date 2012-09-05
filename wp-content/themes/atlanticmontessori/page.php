@@ -2,7 +2,7 @@
   <div class="container page">
 		<div class="row">
 			<? $children = get_pages('child_of='.$post->ID); ?>
-			<? if( count( $children ) != 0 ): ?>
+			<? if( count( $children ) != 0  || is_subpage() ): ?>
 			<nav id="subnav" class="twocol">
 				<ul>
 					<?php echo kula_display_page_subnav($post->ID, $post->ancestors); ?>		

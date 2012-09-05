@@ -25,6 +25,9 @@
 			</nav>
 		</div>
 		<div class="row">
+<div class="alert">
+	<p>We&rsquo;re opening in January 2013!</p>
+</div>
 			<div class="eightcol hero">
 			<?php
 				$args = array( 'post_type' => 'home_slide', 'posts_per_page' => 1 );
