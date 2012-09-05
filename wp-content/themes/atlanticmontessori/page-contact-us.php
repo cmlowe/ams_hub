@@ -1,15 +1,15 @@
 <?php get_header('internal'); ?>
   <div class="container page">
 		<div class="row">
-			<nav id="subnav" class="twocol">
-				<ul>
-					<?php echo kula_display_page_subnav($post->ID, $post->ancestors); ?>		
-				</ul>
-			</nav>
+			<div class="twocol sidebar">
+				<?php if(have_posts()): while(have_posts()): the_post(); ?>
+					<? the_content(); ?>
+				<?php endwhile; ?>
+				<?php endif; ?>
+			</div>
 			<article class="sixcol">
 				<?php if(have_posts()): while(have_posts()): the_post(); ?>
 					<h1><? the_title(); ?></h1>
-					<div class="alignleft"><?php the_content(); ?></div>
 				<?php endwhile; ?>
 				<?php endif; ?>
 				<div class="map">
@@ -17,7 +17,7 @@
 				<div class="clearfix"></div>
 				<h2>Get in touch for more information</h2>
 				<? echo do_shortcode('[contact-form-7 id="34" title="Contact Us"]'); ?>
-			</div>
+			</article>
 		</div>
   </div>
 <?php get_footer('internal'); ?>

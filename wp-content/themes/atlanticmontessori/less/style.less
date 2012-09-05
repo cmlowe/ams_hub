@@ -84,6 +84,12 @@ margin: 0.25em 0 0.5em;
 h4 {
 }
 
+.sidebar {
+	h4 {
+		margin-top: 3.5em;
+	}
+}
+
 h5 {
 }
 
@@ -279,8 +285,8 @@ input {
 		width: auto;
 		float: right;
 		margin: 1em 0 0.5em;
-		background-color: @blue;
-		border: 1px solid darken(@blue, 10%);
+		.button(@blue, darken(@blue, 20%));
+		border: 1px solid darken(@blue, 3%);
 		color: white;
 		
 		&:hover,

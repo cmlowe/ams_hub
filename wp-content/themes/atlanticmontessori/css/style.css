@@ -445,6 +445,9 @@ h3 {
   line-height: 1em;
   margin: 0.25em 0 0.5em;
 }
+.sidebar h4 {
+  margin-top: 3.5em;
+}
 p {
   padding: 0;
   margin: 0 0 1.5em;
@@ -603,9 +606,37 @@ input[type="submit"] {
   width: auto;
   float: right;
   margin: 1em 0 0.5em;
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  font-family: "PTSansBold", Helvetica, serif;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.45);
+  color: #000e39;
   background-color: #00279f;
-  border: 1px solid #001a6c;
+  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0.4)), color-stop(100%, rgba(255, 255, 255, 0)));
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+  border: 1px solid #002390;
   color: white;
+}
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  background-color: #002db9;
+  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
+}
+input[type="submit"]:active {
+  background-color: #002186;
+  -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
 }
 input[type="submit"]:hover,
 input[type="submit"]:focus {
