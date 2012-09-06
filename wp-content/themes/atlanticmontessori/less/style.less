@@ -134,6 +134,13 @@ em {
 	font-style: normal;
 }
 
+p {
+	em {
+	font-family: "PTSansItalic";
+	font-style: normal;
+	}
+}
+
 blockquote {
 font-family: "PTSerifRegular", Goergia, Times New Roman, serif;
 font-size: 1.5em;
@@ -172,7 +179,6 @@ height: auto;
 
 table {
 	margin: 0 0 1.5em;
-	.clearfix;
 
 	thead {
 		text-align: left;		
@@ -185,7 +191,7 @@ table {
 	
 	th {
 		font-family: "PTSansBold";
-		text-align: left;		
+		text-align: left;
 		
 		strong {
 			font-family: "PTSansRegular";
@@ -342,7 +348,11 @@ border-bottom: 1.5em solid @greenAccent;
 	
 		&.nav {
 		margin-bottom: 2em;
-		left: -65px;
+		
+			.twocol {
+				margin-left: -65px;
+				padding-right: 65px;
+			}
 		}
 	}
 }
@@ -460,7 +470,7 @@ position: relative;
 .page {
 	article {
 		&.fivecol {
-		min-height: 21em;
+		min-height: 34em;
 		}
 	}
 }

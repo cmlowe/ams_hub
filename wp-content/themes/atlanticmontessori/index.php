@@ -8,11 +8,11 @@
     	<div class="row">
     		<div class="fourcol">
     			<h2><a href="/programs/toddler-program">Toddler Montessori Program</a></h2>
-    			<p>Our toddler program offers many opportunities for children to grow, learn and explore in a respectful environment that supports their needs. Toddlers will be encouraged to make new discoveries and learn to do things to the best of their abilities. <a href="/programs/toddler-program">Learn more &raquo;</a></p>
+    			<p><em>For children ages 18 months to three years</em>. Our Toddler program provides many opportunities for children to grow, learn and explore in a respectful environment that supports their development. <a href="/programs/toddler-program">Learn more &raquo;</a></p>
     		</div>
     		<div class="fourcol last">
     			<h2><a href="/programs/casa-program">Casa Montessori Program</a></h2>
-    			<p>Our Casa (&ldquo;Casa dei Bambini&rdquo; or &ldquo;Children&rsquo;s House&rdquo;) program offers many opportunities for children to grow, learn and explore in a respectful environment that supports their needs. Children will be encouraged to make new discoveries, to learn from their classmates and to take an active role in caring for their environment. <a href="/programs/casa-program">Learn more &raquo;</a></p>
+    			<p><em>For children ages three to six years</em>. Our Casa program offers children numerous opportunities to make new discoveries in various subject areas, to learn from one another and to take an active role in caring for their environment. <a href="/programs/casa-program">Learn more &raquo;</a></p>
     		</div>    		
     	</div>
     </div>

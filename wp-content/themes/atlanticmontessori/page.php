@@ -15,6 +15,10 @@
 				<?php endwhile; ?>
 				<?php endif; ?>
 			</article>
+
+		</div>
+  </div>
+<?php get_footer('internal'); ?>
 			<? else: ?>
 
 			<article class="sevencol">
@@ -24,7 +28,7 @@
 				<?php endwhile; ?>
 				<?php endif; ?>
 			</article>
-			<? endif ?>
 		</div>
   </div>
-<?php get_footer('internal'); ?>
+<?php get_footer(); ?>
+			<? endif ?>

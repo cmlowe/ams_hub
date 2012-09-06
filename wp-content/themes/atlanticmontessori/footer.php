@@ -7,9 +7,6 @@
 		</nav>
 		<nav class="fourcol tool-nav last">
 			<p>&copy; 2012 Atlantic Montessori School</p>
-			<ul>
-				<li><a href="/sitemap">Sitemap</a></li>
-			</ul>
 		</nav>
 	</div>
 	<div class="footer-border"></div>

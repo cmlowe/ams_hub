@@ -3,7 +3,11 @@
 	header {
 		.row {
 			&.nav {
-				left: 0;
+			
+				.twocol {
+					margin-left: 0;
+					padding-right: 0;
+				}
 			}
 		}
 	}
@@ -45,20 +49,25 @@ header {
 padding-top: 1.5em;
 padding-bottom: 3em;
 
-	.twocol,
-	.onecol {
-		float: none;
-		width: 200px;
-		margin: 0px auto;
-
-		a {
-			&.logo {
-				margin-bottom: 0.75em;
+	.row {
+		&.nav {
+		
+			.twocol,
+			.onecol {
+				float: none;
+				width: 200px;
+				margin: 0px auto;
+		
+				a {
+					&.logo {
+						margin-bottom: 0.75em;
+					}
+				}		
 			}
-		}		
+		}
 	}
 	
-	.sixcol {
+	.fivecol {
 		float: none;
 		width: auto;
 		clear: both;

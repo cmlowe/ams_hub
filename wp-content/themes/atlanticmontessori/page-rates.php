@@ -10,4 +10,4 @@
 			</article>
 		</div>
   </div>
-<?php get_footer('internal'); ?>
+<?php get_footer(); ?>

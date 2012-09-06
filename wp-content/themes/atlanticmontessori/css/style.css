@@ -486,6 +486,10 @@ em {
   font-family: "PTSerifItalic";
   font-style: normal;
 }
+p em {
+  font-family: "PTSansItalic";
+  font-style: normal;
+}
 blockquote {
   font-family: "PTSerifRegular", Goergia, Times New Roman, serif;
   font-size: 1.5em;
@@ -518,16 +522,6 @@ img {
 }
 table {
   margin: 0 0 1.5em;
-  *zoom: 1;
-  *zoom: 1;
-}
-table:before,
-table:after {
-  display: table;
-  content: "";
-}
-table:after {
-  clear: both;
 }
 table thead {
   text-align: left;
@@ -699,7 +693,10 @@ header .row {
 }
 header .row.nav {
   margin-bottom: 2em;
-  left: -65px;
+}
+header .row.nav .twocol {
+  margin-left: -65px;
+  padding-right: 65px;
 }
 /* Navigation */
 .main-nav ul {
@@ -818,7 +815,7 @@ header .row.nav {
   text-indent: inherit;
 }
 .page article.fivecol {
-  min-height: 21em;
+  min-height: 34em;
 }
 .lt-ie8 article h2 {
   clear: both;
@@ -1074,8 +1071,9 @@ footer ul {
   }
 }
 @media only screen and (max-width: 1150px) {
-  header .row.nav {
-    left: 0;
+  header .row.nav .twocol {
+    margin-left: 0;
+    padding-right: 0;
   }
 }
 @media only screen and (max-width: 1055px) {
@@ -1099,17 +1097,17 @@ footer ul {
     padding-top: 1.5em;
     padding-bottom: 3em;
   }
-  header .twocol,
-  header .onecol {
+  header .row.nav .twocol,
+  header .row.nav .onecol {
     float: none;
     width: 200px;
     margin: 0px auto;
   }
-  header .twocol a.logo,
-  header .onecol a.logo {
+  header .row.nav .twocol a.logo,
+  header .row.nav .onecol a.logo {
     margin-bottom: 0.75em;
   }
-  header .sixcol {
+  header .fivecol {
     float: none;
     width: auto;
     clear: both;
