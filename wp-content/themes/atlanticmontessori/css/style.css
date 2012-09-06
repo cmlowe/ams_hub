@@ -734,7 +734,9 @@ header .row.nav .twocol {
   color: #4d4848;
   border-color: #4d4848;
 }
-.main-nav ul li.current_page_item a {
+.main-nav ul li.current_page_item a,
+.main-nav ul li.current_page_parent a,
+.main-nav ul li.current_page_ancestor a {
   padding-bottom: 4px;
   color: #19ae62;
   border-bottom: 4px solid #19ae62;
