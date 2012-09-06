@@ -15,11 +15,11 @@
 <body class="internal">
   <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
  	<header>
- 		<div class="row">
+ 		<div class="row nav">
  			<div class="twocol">
 		 		<a href="/" class="logo"><img src="<?php _e(get_stylesheet_directory_uri()); ?>/img/logo-ams.png" alt="Atlantic Montessori School"></a>
 	 		</div>
-	  		<nav class="sixcol main-nav last">
+	  		<nav class="fivecol main-nav last">
 				<ul>
 					<?php wp_list_pages('title_li=&include=6, 14, 12, 10, 8&sort_column=ID'); ?>
 				</ul>
