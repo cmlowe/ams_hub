@@ -12,7 +12,7 @@
     		</div>
     		<div class="fourcol last">
     			<h2><a href="/programs/casa-program">Casa Montessori Program</a></h2>
-    			<p><em>For children ages three to six years</em>. Our Casa program offers children numerous opportunities to make new discoveries in various subject areas, to learn from one another and to take an active role in caring for their environment. <a href="/programs/casa-program">Learn more &raquo;</a></p>
+    			<p><em>For children ages three to six years</em>. Our bilingual Casa program offers children numerous opportunities to make new discoveries in various subject areas, to learn from one another and to take an active role in caring for their environment. <a href="/programs/casa-program">Learn more &raquo;</a></p>
     		</div>    		
     	</div>
     </div>
