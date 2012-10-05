@@ -62,8 +62,6 @@ html {
   /* 1 */
 
   -webkit-text-size-adjust: 100%;
-  /* 2 */
-
   -ms-text-size-adjust: 100%;
   /* 2 */
 
@@ -271,8 +269,6 @@ textarea {
   /* 2 */
 
   vertical-align: baseline;
-  /* 3 */
-
   *vertical-align: middle;
   /* 3 */
 
@@ -328,8 +324,6 @@ input[type="radio"] {
   /* 2 */
 
   *height: 13px;
-  /* 3 */
-
   *width: 13px;
   /* 3 */
 
@@ -597,6 +591,9 @@ article img {
   font-family: "PTSerifItalic";
   font-size: 1.25em;
 }
+.alert a {
+  color: white;
+}
 /* Forms */
 form p {
   overflow: hidden;
@@ -641,7 +638,6 @@ input[type="submit"] {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.45);
   color: #000e39;
   background-color: #00279f;
-  border: 1px solid #002390;
   background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0.4)), color-stop(100%, rgba(255, 255, 255, 0)));
   background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
@@ -997,7 +993,6 @@ footer ul {
 .row {
   max-width: 1000px;
   margin: 0 auto;
-  *zoom: 1;
   *zoom: 1;
 }
 .row:before,

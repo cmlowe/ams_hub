@@ -40,7 +40,7 @@
 		</div>
 		<div class="row">
 <div class="alert">
-	<p>We&rsquo;re opening in January 2013!</p>
+	<p><a href="<?php get_bloginfo('url') ?>/contact-us">RSVP</a> for Oct 17 Parent Info Night</p>
 </div>
 			<div class="eightcol hero">
 			<?php
