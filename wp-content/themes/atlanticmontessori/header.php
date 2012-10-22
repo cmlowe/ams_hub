@@ -39,9 +39,9 @@
 			</nav>
 		</div>
 		<div class="row">
-<div class="alert">
+<!--<div class="alert">
 	<p><a href="<?php get_bloginfo('url') ?>/contact-us">RSVP</a> for Oct 17 Parent Info Night</p>
-</div>
+</div>-->
 			<div class="eightcol hero">
 			<?php
 				$args = array( 'post_type' => 'home_slide', 'posts_per_page' => 1 );
