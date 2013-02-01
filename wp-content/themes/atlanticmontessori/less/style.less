@@ -142,11 +142,11 @@ p {
 }
 
 blockquote {
-font-family: "PTSerifRegular", Goergia, Times New Roman, serif;
-font-size: 1.5em;
-line-height: 1.25em;
-margin: 0;
-padding: 0em;
+	font-family: "PTSerifRegular", Goergia, Times New Roman, serif;
+	font-size: 1.5em;
+	line-height: 1.25em;
+	margin: 0;
+	padding: 0;
 
 	strong {
 		font-family: "PTSerifBold";
@@ -154,7 +154,11 @@ padding: 0em;
 	}
 
 	p {
-	padding: 0;
+		padding: 0;
+
+		&:first-child {
+			text-indent: -0.5em;
+		}	
 	}
 }
 

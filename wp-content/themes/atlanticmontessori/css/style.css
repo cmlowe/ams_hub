@@ -495,7 +495,7 @@ blockquote {
   font-size: 1.5em;
   line-height: 1.25em;
   margin: 0;
-  padding: 0em;
+  padding: 0;
 }
 blockquote strong {
   font-family: "PTSerifBold";
@@ -503,6 +503,9 @@ blockquote strong {
 }
 blockquote p {
   padding: 0;
+}
+blockquote p:first-child {
+  text-indent: -0.5em;
 }
 strong {
   font-family: "PTSansBold";
