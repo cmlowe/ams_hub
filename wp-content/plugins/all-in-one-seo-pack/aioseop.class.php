@@ -2,7 +2,7 @@
 
 class All_in_One_SEO_Pack {
 	
- 	var $version = "1.6.15";
+ 	var $version = "1.6.15.3";
  	
  	/** Max numbers of chars in auto-generated description */
  	var $maximum_description_length = 160;
@@ -121,11 +121,12 @@ class All_in_One_SEO_Pack {
 		if (is_single() || is_page()) {
 		    $aiosp_disable = htmlspecialchars(stripcslashes(get_post_meta($post->ID, '_aioseop_disable', true)));
 		    if ($aiosp_disable) {
+				$aiosp_disable_analytics = htmlspecialchars(stripcslashes( get_post_meta( $post->ID, '_aioseop_disable_analytics', true ) ) );
+				if ( $aiosp_disable_analytics )
+					remove_action( 'wp_head', array( $this, 'aiosp_google_analytics' ) );
 		    	return;
 		    }
 		}
-
-
 
 		if ($aioseop_options['aiosp_rewrite_titles']) {
 			ob_start(array($this, 'output_callback_for_title'));
@@ -222,13 +223,14 @@ class All_in_One_SEO_Pack {
 		if (is_single() || is_page()) {
 		    $aiosp_disable = htmlspecialchars(stripcslashes(get_post_meta($post->ID, '_aioseop_disable', true)));
 		    if ($aiosp_disable) {
-		    	return;
+			$aiosp_disable_analytics = htmlspecialchars(stripcslashes( get_post_meta( $post->ID, '_aioseop_disable_analytics', true ) ) );
+			if ( $aiosp_disable_analytics )
+				remove_action( 'wp_head', array( $this, 'aiosp_google_analytics' ) );
+			return;
 		    }
 		}
 		
-			if( $this->aioseop_mrt_exclude_this_page()==TRUE ){
-				return;
-			}
+		if( $this->aioseop_mrt_exclude_this_page()==TRUE ) return;
 		
 		if ($aioseop_options['aiosp_rewrite_titles']) {
 			// make the title rewrite as short as possible
@@ -343,9 +345,9 @@ class All_in_One_SEO_Pack {
 			$page_meta = stripcslashes($aioseop_options['aiosp_page_meta_tags']);
 			$post_meta = stripcslashes($aioseop_options['aiosp_post_meta_tags']);
 			$home_meta = stripcslashes($aioseop_options['aiosp_home_meta_tags']);
-			$front_meta = stripcslashes($aioseop_options['aiosp_front_meta_tags']);
+			$front_meta = !isset( $aioseop_options['aiosp_front_meta_tags'] ) ? '' : stripcslashes( $aioseop_options['aiosp_front_meta_tags'] );
 			
-			if ( is_page() && isset($page_meta) && !empty( $page_meta ) && !$is_front_page ) {
+			if ( is_page() && isset( $page_meta ) && !empty( $page_meta ) && ( !$is_front_page || empty( $front_meta ) ) ) {
 				if ( isset( $meta_string ) ) $meta_string .= "\n";
 				$meta_string .= $page_meta;
 			}
@@ -401,17 +403,18 @@ class All_in_One_SEO_Pack {
 			
 function aiosp_google_analytics(){
 	global $aioseop_options;
-	
 	?>
 		<script type="text/javascript">
 
 		  var _gaq = _gaq || [];
 		  _gaq.push(['_setAccount', '<?php echo $aioseop_options['aiosp_google_analytics_id']; ?>']);
-<?php if ( !empty( $aioseop_options['aiosp_ga_domain'] ) ) {
+<?php if ( !empty( $aioseop_options['aiosp_ga_multi_domain'] ) ) {
+?>		  _gaq.push(['_setAllowLinker', true]);
+<?php }
+
+	  if ( !empty( $aioseop_options['aiosp_ga_domain'] ) ) {
 ?>		  _gaq.push(['_setDomainName', '<?php echo $aioseop_options['aiosp_ga_domain']; ?>']);
-<?php
-}
-?>
+<?php } ?>
 		  _gaq.push(['_trackPageview']);
 
 		  (function() {
@@ -1155,12 +1158,12 @@ function aiosp_google_analytics(){
 
 
 	function post_meta_tags($id) {
-	    $awmp_edit = $_POST["aiosp_edit"];
-		$nonce = $_POST['nonce-aioseop-edit'];
+		$awmp_edit = isset( $_POST["aiosp_edit"] ) ? $_POST["aiosp_edit"] : null;
+		$nonce = isset( $_POST['nonce-aioseop-edit'] ) ? $_POST['nonce-aioseop-edit'] : null;
 //		if (!wp_verify_nonce($nonce, 'edit-aioseop-nonce')) die ( 'Security Check - If you receive this in error, log out and back in to WordPress');
 	    if (isset($awmp_edit) && !empty($awmp_edit) && wp_verify_nonce($nonce, 'edit-aioseop-nonce')) {
 		
-			foreach (Array('keywords', 'description', 'title', 'meta', 'disable', 'titleatr', 'menulabel', 'togglekeywords') as $f) {
+			foreach (Array('keywords', 'description', 'title', 'meta', 'disable', 'disable_analytics', 'titleatr', 'menulabel', 'togglekeywords') as $f) {
 				$field = "aiosp_$f";
 				if ( isset( $_POST[$field] ) ) $$field = $_POST[$field];
 		    }
@@ -1177,6 +1180,7 @@ function aiosp_google_analytics(){
 		
 		    if ($this->is_admin()) {
 		    	delete_post_meta($id, '_aioseop_disable');
+		    	delete_post_meta($id, '_aioseop_disable_analytics');
 		    }
 		    //delete_post_meta($id, 'aiosp_meta');
 
@@ -1194,9 +1198,12 @@ function aiosp_google_analytics(){
 		    }
 		    if (isset($aiosp_menulabel) && !empty($aiosp_menulabel)) {
 			    add_post_meta($id, '_aioseop_menulabel', $aiosp_menulabel);
-		    }				
+		    }
 		    if (isset($aiosp_disable) && !empty($aiosp_disable) && $this->is_admin()) {
 			    add_post_meta($id, '_aioseop_disable', $aiosp_disable);
+		    }
+		    if (isset($aiosp_disable_analytics) && !empty($aiosp_disable_analytics) && $this->is_admin()) {
+			    add_post_meta($id, '_aioseop_disable_analytics', $aiosp_disable_analytics);
 		    }
 		    /*
 		    if (isset($aiosp_meta) && !empty($aiosp_meta)) {
@@ -1280,6 +1287,7 @@ function aiosp_google_analytics(){
 	    $description = htmlspecialchars(stripcslashes(get_post_meta($post_id, '_aioseop_description', true)));
 	    $aiosp_meta = htmlspecialchars(stripcslashes(get_post_meta($post_id, '_aioseop_meta', true)));
 	    $aiosp_disable = htmlspecialchars(stripcslashes(get_post_meta($post_id, '_aioseop_disable', true)));
+	    $aiosp_disable_analytics = htmlspecialchars(stripcslashes(get_post_meta($post_id, '_aioseop_disable_analytics', true)));
 	    $aiosp_titleatr = htmlspecialchars(stripcslashes(get_post_meta($post_id, '_aioseop_titleatr', true)));
 	    $aiosp_menulabel = htmlspecialchars(stripcslashes(get_post_meta($post_id, '_aioseop_menulabel', true)));		
 	
@@ -1330,7 +1338,16 @@ function aiosp_google_analytics(){
 								<input type="checkbox" name="aiosp_disable" <?php if ($aiosp_disable) echo "checked=\"1\""; ?>/>
 							</td>
 						</tr>
-		
+<?php if ( $aiosp_disable ) { ?>
+						<tr>
+							<th scope="row" style="text-align:right; vertical-align:top;">
+								<?php _e('Disable Google Analytics:', 'all_in_one_seo_pack')?>
+							</th>
+							<td>
+								<input type="checkbox" name="aiosp_disable_analytics" <?php if ($aiosp_disable_analytics) echo "checked=\"1\""; ?>/>
+							</td>
+						</tr>
+<?php } ?>		
 						<tr>
 							<th scope="row" style="text-align:right;"><?php _e('Title Attribute:', 'all_in_one_seo_pack') ?></th>
 							<td><input value="<?php echo $aiosp_titleatr ?>" type="text" name="aiosp_titleatr" size="62"/></td>
@@ -1416,6 +1433,7 @@ function aiosp_google_analytics(){
 					"aiosp_paged_format"=>' - Part %page%',
 					"aiosp_google_analytics_id"=>null,
 					"aiosp_ga_domain"=>'',
+					"aiosp_ga_multi_domain"=>0,
 					"aiosp_ga_track_outbound_links"=>0,
 					"aiosp_google_publisher"=>'',
 					"aiosp_use_categories"=>0,
@@ -1451,7 +1469,7 @@ function aiosp_google_analytics(){
 				$options = Array(	"aiosp_can", "aiosp_donate", "aiosp_home_title", "aiosp_home_description", "aiosp_home_keywords", "aiosp_max_words_excerpt",
 									"aiosp_rewrite_titles", "aiosp_post_title_format", "aiosp_page_title_format", "aiosp_category_title_format",
 									"aiosp_archive_title_format", "aiosp_tag_title_format", "aiosp_search_title_format", "aiosp_description_format",
-									"aiosp_404_title_format", "aiosp_paged_format", "aiosp_google_publisher", "aiosp_google_analytics_id", "aiosp_ga_domain", "aiosp_ga_track_outbound_links",
+									"aiosp_404_title_format", "aiosp_paged_format", "aiosp_google_publisher", "aiosp_google_analytics_id", "aiosp_ga_domain", "aiosp_ga_multi_domain", "aiosp_ga_track_outbound_links",
 									"aiosp_use_categories", "aiosp_dynamic_postspage_keywords", "aiosp_category_noindex", "aiosp_archive_noindex",
 									"aiosp_tags_noindex", "aiosp_generate_descriptions", "aiosp_cap_cats", "aiosp_enablecpost", "aiosp_debug_info",
 									"aiosp_post_meta_tags", "aiosp_page_meta_tags", "aiosp_home_meta_tags", "aiosp_front_meta_tags", "aiosp_ex_pages", "aiosp_do_log",
@@ -2159,6 +2177,21 @@ _e('Enter domain name for tracking with Google Analytics.', 'all_in_one_seo_pack
 
 <tr>
 <th scope="row" style="text-align:right; vertical-align:top;">
+<a style="cursor:pointer;" title="<?php _e('Click for Help!', 'all_in_one_seo_pack')?>" onclick="toggleVisibility('aiosp_ga_multi_domain_tip');">
+<?php _e('Track Multiple Domains:', 'all_in_one_seo_pack')?>
+</td>
+<td>
+<input type="checkbox" name="aiosp_ga_multi_domain" <?php if ($aioseop_options['aiosp_ga_multi_domain']) echo "checked=\"1\""; ?>"/>
+<div style="max-width:500px; text-align:left; display:none" id="aiosp_ga_multi_domain_tip">
+<?php
+_e('Enable multi-domain tracking for Google Analytics.', 'all_in_one_seo_pack');
+ ?>
+</div>
+</td>
+</tr>
+
+<tr>
+<th scope="row" style="text-align:right; vertical-align:top;">
 <a style="cursor:pointer;" title="<?php _e('Click for Help!', 'all_in_one_seo_pack')?>" onclick="toggleVisibility('aiosp_ga_track_outbound_links_tip');">
 <?php _e('Track Outbound Links:', 'all_in_one_seo_pack')?>
 </td>
@@ -2379,7 +2412,7 @@ _e('What you enter here will be copied verbatim to your header on the home page.
 </a>
 </td>
 <td>
-<textarea cols="57" rows="2" name="aiosp_front_meta_tags"><?php echo stripcslashes($aioseop_options['aiosp_front_meta_tags']); ?></textarea>
+<textarea cols="57" rows="2" name="aiosp_front_meta_tags"><?php if ( isset( $aioseop_options['aiosp_front_meta_tags'] ) ) echo stripcslashes($aioseop_options['aiosp_front_meta_tags']); ?></textarea>
 <div style="max-width:500px; text-align:left; display:none" id="aiosp_front_meta_tags_tip">
 <?php
 _e('What you enter here will be copied verbatim to your header on the front page. You can enter whatever additional headers you want here, even references to stylesheets.', 'all_in_one_seo_pack');

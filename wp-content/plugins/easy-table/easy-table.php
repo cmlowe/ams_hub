@@ -4,7 +4,7 @@ Plugin Name: Easy Table
 Plugin URI: http://takien.com/
 Description: Create table in post, page, or widget in easy way.
 Author: Takien
-Version: 0.9
+Version: 1.0
 Author URI: http://takien.com/
 */
 
@@ -23,6 +23,22 @@ Author URI: http://takien.com/
     For a copy of the GNU General Public License, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
+/*
+Easy Table 1.0 beta2
++ Added nl2br if terminator is not \n nor \r
++ Added is_search conditional option to load CSS/JS
++ Improved admin UI, field description is now using tTooltip
+
+Easy Table 1.0 beta
+Changelog:
++ Encoding fix (?)
++ Added colalign
++ Added colwidth
++ Added style param
++ Added limit param
++ Added trim param
++ Added terminator param
+*/
 
 if(!defined('ABSPATH')) die();
 
@@ -34,29 +50,32 @@ class EasyTable {
 * Default settings
 * Plugin will use this setting if user not made custom setting via settings page or tag.
 */
-var $settings 	= Array(
-	'shortcodetag'	=> 'table',
-	'attrtag'		=> 'attr',
-	'tablewidget'	=> false,
-	'scriptloadin'	=> Array('is_single','is_page'),
-	'class'			=> '',
-	'caption'		=> false,
-	'width'			=> '100%',
-	'align'			=> 'left',
-	'th'			=> true,
-	'tf'			=> false,
-	'border'		=> 0,
-	'id'			=> false,
-	'theme'			=> 'default',
-	'tablesorter' 	=> false,
-	'loadcss' 		=> true,
+var $settings = Array(
+	'shortcodetag'  => 'table',
+	'attrtag'       => 'attr',
+	'tablewidget'   => false,
+	'scriptloadin'  => Array('is_single','is_page'),
+	'class'         => '',
+	'caption'       => false,
+	'width'         => '100%',
+	'align'         => 'left',
+	'th'            => true,
+	'tf'            => false,
+	'border'        => 0,
+	'id'            => false,
+	'theme'         => 'default',
+	'tablesorter'   => false,
+	'loadcss'       => true,
 	'scriptinfooter'=> false,
-	'delimiter'		=> ',',
-	'file'			=> false,
-	'enclosure' 	=> '&quot;',
-	'escape' 		=> '\\',
+	'delimiter'     => ',',
+	'file'          => false,
+	'trim'          => false, /*trim, since 1.0*/
+	'enclosure'     => '&quot;',
+	'escape'        => '\\',
 	'nl'            => '~~',
-	'csvfile'		=> false
+	'csvfile'       => false,
+	'terminator'    => '\n', /*row terminator, since 1.0*/
+	'limit'         => 0 /*max row to be included to table, 0 = unlimited, since 1.0*/
 );
 
 
@@ -86,7 +105,7 @@ function __construct(){
 private function easy_table_base($return){
 	$easy_table_base = Array(
 				'name' 			=> 'Easy Table',
-				'version' 		=> '0.9',
+				'version' 		=> '1.0',
 				'plugin-domain'	=> 'easy-table'
 	);
 	return $easy_table_base[$return];
@@ -108,9 +127,15 @@ function easy_table_short_code($atts, $content="") {
 		'enclosure' 	=> $this->option('enclosure'),
 		'escape' 		=> $this->option('escape'),
 		'file'			=> $this->option('file'),
+		'trim'			=> $this->option('trim'), 
 		'sort'          => '',
 		'nl'            => $this->option('nl'),
-		'ai'            => false
+		'ai'            => false,
+		'terminator'	=> $this->option('terminator'),
+		'limit'	        => $this->option('limit'),
+		'style'	        => '', /*table inline style, since 1.0*/
+		'colalign'      => '', /*column align, ex: [table colalign="left|right|center"], @since 1.0*/
+		'colwidth'      => '', /*column width, ex: [table colwidth="100|200|300"], @since 1.0*/
 	 ), $atts);
 	/**
 	* because clean_pre is deprecated since WordPress 3.4, then replace it manually
@@ -162,19 +187,29 @@ private function csv_to_table($data,$args){
 		}
 	}
 
-	if(empty($data)) return false;
 	if(!is_array($data)){
 		/**
 		normalize nl, since it may contains new line.
 		@since 0.9
 		*/
 		$data = preg_replace('/'.preg_quote($nl).'([\s\r\n\t]+)?/i',$nl,$data);
+	
+		/*
+		Fix encoding?
+		@since: 1.0 beta
+		*/
+		require_once (dirname(__FILE__).'/inc/Encoding.php');
+		//$data = ForceEncode::fixUTF8($data);
+		$data = ForceEncode::toUTF8($data);
 		
 		/*
 		convert csv to array.
 		*/
-		$data 	= $this->csv_to_array(trim($data), $delimiter, $enclosure, $escape);
+		$data 	= $this->csv_to_array(trim($data), $delimiter, $enclosure, $escape,$terminator);
 	}
+	
+	if(empty($data)) return false;
+	
 	$max_cols 	= count(max($data));
 
 	$r=0;
@@ -196,13 +231,24 @@ private function csv_to_table($data,$args){
 	*/
 	$tfpos = ($tf == 'last') ? count($data) : ($th?2:1);
 
-	$pos = strpos($width,'px');
-	if ($pos === false) {
-		$width = (int)$width.'%';
-	} else {
-		$width = (int)$width.'px';
+	$width = (stripos($width,'%') === false) ? (int)$width.'px' : (int)$width.'%';
+	
+	/*colalign & colwidth
+	@since 1.0
+	*/
+	if($colalign) {
+	    $c_align = explode('|',$colalign);
 	}
-	$output = '<table '.($id ? 'id="'.$id.'"':'').' style="width:'.$width.';'.(($align=='center') ? 'margin-left:auto;margin-right:auto' : '').'" width="'.$width.'" align="'.$align.'" class="easy-table easy-table-'.$theme.' '.($tablesorter ? 'tablesorter __sortlist__ ':'').$class.'" '.(($border !=='0') ? 'border="'.$border.'"' : '').'>'."\n";
+	if($colwidth) {
+	    $c_width = explode('|',$colwidth);
+	}
+	
+	$output = '<table '.($id ? 'id="'.$id.'"':'');
+	$output .= ' width="'.$width.'" align="'.$align.'" ';
+	$output .= ' style="'.((stripos($style,'width') === false) ? ('width:'.$width.';'.(($align=='center') ? 'margin-left:auto;margin-right:auto' : '')) : $style).'" ';
+	$output .= ' class="easy-table easy-table-'.$theme.' '.($tablesorter ? 'tablesorter __sortlist__ ':'').$class.'" '.
+	(($border !=='0') ? 'border="'.$border.'"' : '').
+	'>'."\n";
 	
 	$output .= $caption ? '<caption>'.$caption.'</caption>'."\n" : '';
 	$output .= $th ? '<thead>' : (($tf !== 'last') ? '' : '<tbody>');
@@ -238,12 +284,12 @@ ai head, text to shown in the table head row, default is No.
 		$indexwidth  = isset($index[2]) ? (int)$index[2] : 30;
 		$output .= ($ai AND ($thtd == 'td'))  ? '<'.$thtd.' style="width:'.$indexwidth.'px">'.$indexnum."</$thtd>" : ($ai ? "<$thtd>".$indexhead."</$thtd>" : '');
 		
-		foreach($cols as $c=>$col){
+		foreach($cols as $c=>$cell){
 			/**
 			* Add attribute for each cell
 			* @since 0.5
 			*/
-			preg_match('/\['.$this->option('attrtag').' ([^\\]\\/]*(?:\\/(?!\\])[^\\]\\/]*)*?)/',$col,$matchattr);
+			preg_match('/\['.$this->option('attrtag').' ([^\\]\\/]*(?:\\/(?!\\])[^\\]\\/]*)*?)/',$cell,$matchattr);
 			$attr = isset($matchattr[1]) ? $matchattr[1] : '';
 				/**
 				* extract $attr value
@@ -280,8 +326,42 @@ ai head, text to shown in the table head row, default is No.
 			nl, replace nl with new line
 			@since 0.9
 			*/
-			$col     = str_replace($nl,'<br />',$col);
-			$output .= "<$thtd $attr>".do_shortcode($col)."</$thtd>\n";
+			$cell     = str_replace($nl,'<br />',$cell);
+			 /*trim cell content?
+			 @since 1.0
+			 */
+			$cell  = $trim ? trim(str_replace('&nbsp;','',$cell)) : $cell;
+			
+			/*nl2br? only if terminator is not \n or \r*/
+			if(( '\n' !== $terminator )  OR ( '\r' !== $terminator )) {
+				$cell = nl2br($cell);
+			}
+			/*colalign
+			 @since 1.0
+			 */
+			if (isset($c_align[$c]) AND (stripos($attr,'text-align') === false)) {
+				if(stripos($attr,'style') === false) {
+				   $attr = $attr. ' style="text-align:'.$c_align[$c].'" ';
+				}
+				else {
+					$attr = preg_replace('/style(\s+)?=(\s+)?("|\')(\s+)?/i','style=${3}text-align:'.$c_align[$c].';',$attr);
+				}
+			}
+			/*colwidth
+			 @since 1.0
+			 */
+			if (isset($c_width[$c]) AND (stripos($attr,'width') === false) AND ($r == 1)) {
+				$c_width[$c] = (stripos($c_width[$c],'%') === false) ? (int)$c_width[$c].'px' : (int)$c_width[$c].'%';
+				
+				if(stripos($attr,'style') === false) {
+				   $attr = $attr. ' style="width:'.$c_width[$c].'" ';
+				}
+				else {
+					$attr = preg_replace('/style(\s+)?=(\s+)?("|\')(\s+)?/i','style=${3}width:'.$c_width[$c].';',$attr);
+				}
+			}
+			
+			$output .= "<$thtd $attr>".do_shortcode($cell)."</$thtd>\n";
 		}
 	
 		$output .= '</tr>'."\n";
@@ -321,10 +401,23 @@ ai head, text to shown in the table head row, default is No.
 /**
 * Convert CSV to array
 */
-private function csv_to_array($csv, $delimiter = ',', $enclosure = '"', $escape = '\\', $terminator = "\n") {
+private function csv_to_array($csv, $delimiter = ',', $enclosure = '"', $escape = '\\', $terminator = "\n", $limit = 0 ) {
 $r = array();
+
+$terminator = ($terminator == '\n') ? "\n" : $terminator;
+$terminator = ($terminator == '\r') ? "\r" : $terminator;
+$terminator = ($terminator == '\t') ? "\t" : $terminator;
+
 $rows = str_getcsv($csv, $terminator,$enclosure,$escape); 
 $rows = array_diff($rows,Array(''));
+/*
+* limit how many rows will be included?
+* default 0, means ulimited.
+* @since 1.0
+*/
+if($limit > 0) {
+	$rows = array_slice($rows, 0, $limit); 
+}
 
 foreach($rows as &$row) {
 	$r[] = str_getcsv($row,$delimiter);
@@ -377,7 +470,16 @@ function themes(){
 	}
 	return $themes;
 }
-
+function theme_content() {
+	if(!isset($_GET['edit'])) {
+		return false;
+	}
+		$theme = $_GET['edit'];
+		$dir   = plugin_dir_path(__FILE__).'themes/';
+		if(is_writable($dir.$theme.'/style.css')) {
+			return file_get_contents($dir.$theme.'/style.css');
+		}
+}
 /**
 * Register plugin setting
 */
@@ -392,33 +494,36 @@ function easy_table_register_setting() {
 function render_form($fields){
 	$output ='<table class="form-table">';
 	foreach($fields as $field){
+		$field['rowclass'] = isset($field['rowclass']) ? $field['rowclass'] : false;
+		$field['label'] = isset($field['label']) ? $field['label'] : '';
+		
 		if($field['type']=='text'){
-			$output .= '<tr><th><label for="'.$field['name'].'">'.$field['label'].'</label></th>';
+			$output .= '<tr '.($field['rowclass'] ? 'class="'.$field['rowclass'].'"': '').'><th><label for="'.$field['name'].'">'.$field['label'].'</label></th>';
 			$output .= '<td><input type="text" id="'.$field['name'].'" name="'.$field['name'].'" value="'.$field['value'].'" />';
-			$output .= ' <span class="description">'.$field['description'].'</span></td></tr>';
+			$output .= ' <a href="#" class="help-btn ttt" data-title="'.$field['label'].'" data-content="'.$field['description'].'">?</a></td></tr>';
 		}
 		if($field['type']=='checkbox'){
-			$output .= '<tr><th><label for="'.$field['name'].'">'.$field['label'].'</label></th>';
+			$output .= '<tr '.($field['rowclass'] ? 'class="'.$field['rowclass'].'"': '').'><th><label for="'.$field['name'].'">'.$field['label'].'</label></th>';
 			$output .= '<td><input type="hidden" name="'.$field['name'].'" value="" /><input type="checkbox" id="'.$field['name'].'" name="'.$field['name'].'" value="'.$field['value'].'" '.$field['attr'].' />';
-			$output .= ' <span class="description">'.$field['description'].'</span></td></tr>';
+			$output .= ' <a href="#" class="help-btn ttt" data-title="'.$field['label'].'" data-content="'.$field['description'].'">?</a></td></tr>';
 		}
 		if($field['type']=='checkboxgroup'){
-			$output .= '<tr><th><label>'.$field['grouplabel'].'</label></th>';
+			$output .= '<tr '.($field['rowclass'] ? 'class="'.$field['rowclass'].'"': '').'><th><label>'.$field['grouplabel'].'</label></th>';
 			$output .= '<td>';
 			foreach($field['groupitem'] as $key=>$item){
 				$output .= '<input type="hidden" name="'.$item['name'].'" value="" /><input type="checkbox" id="'.$item['name'].'" name="'.$item['name'].'" value="'.$item['value'].'" '.$item['attr'].' /> <label for="'.$item['name'].'">'.$item['label'].'</label><br />';
 			}
-			$output .= ' <span class="description">'.$field['description'].'</span></td></tr>';
+			$output .= ' <a href="#" class="help-btn ttt" data-title="'.$field['label'].'" data-content="'.$field['description'].'">?</a></td></tr>';
 		}
 		if($field['type'] == 'select'){
-			$output .= '<tr><th><label>'.$field['label'].'</label></th>';
+			$output .= '<tr '.($field['rowclass'] ? 'class="'.$field['rowclass'].'"': '').'><th><label>'.$field['label'].'</label></th>';
 			$output .= '<td>';
 			$output .= '<select name="'.$field['name'].'">';
 				foreach( (array)$field['values'] as $val=>$name ) {
 					$output .= '<option '.(($val==$field['value']) ? 'selected="selected"' : '' ).' value="'.$val.'">'.$name.'</option>';
 				}
 			$output .= '</select>';
-			$output .= ' <span class="description">'.$field['description'].'</span></td></tr>';
+			$output .= ' <a href="#" class="help-btn ttt" data-title="'.$field['label'].'" data-content="'.$field['description'].'">?</a></td></tr>';
 		}
 	}
 	$output .= '</table>';
@@ -432,7 +537,9 @@ function easy_table_script() {
 	if(	is_single() AND in_array('is_single',$this->option('scriptloadin')) OR
 		is_page() AND in_array('is_page',$this->option('scriptloadin')) OR 
 		is_home() AND in_array('is_home',$this->option('scriptloadin')) OR 
-		is_archive() AND in_array('is_archive',$this->option('scriptloadin')))
+		is_archive() AND in_array('is_archive',$this->option('scriptloadin')) OR 
+		is_search() AND in_array('is_search',$this->option('scriptloadin'))
+		)
 	{
 	if($this->option('tablesorter')) {
 		wp_enqueue_script('easy_table_script',plugins_url( 'js/easy-table-script.js' , __FILE__ ),array('jquery'),$this->easy_table_base('version'),$this->option('scriptinfooter'));
@@ -447,7 +554,9 @@ function easy_table_style() {
 	if(	is_single() AND in_array('is_single',$this->option('scriptloadin')) OR
 		is_page() AND in_array('is_page',$this->option('scriptloadin')) OR 
 		is_home() AND in_array('is_home',$this->option('scriptloadin')) OR 
-		is_archive() AND in_array('is_archive',$this->option('scriptloadin')))
+	    is_archive() AND in_array('is_archive',$this->option('scriptloadin')) OR 
+	    is_search() AND in_array('is_search',$this->option('scriptloadin'))
+		)
 	{
 	if($this->option('loadcss')) {
 		wp_enqueue_style('easy_table_style', plugins_url('themes/'.$this->option('theme').'/style.css', __FILE__),false,$this->easy_table_base('version'));
@@ -464,10 +573,19 @@ if($this->option('tablesorter')) { ?>
 if($this->option('loadcss')) { ?>
 <link rel="stylesheet" href="<?php echo plugins_url('themes/'.$this->option('theme').'/style.css?ver='.$this->easy_table_base('version'), __FILE__);?>" />
 <?php } ?>
+
 <link rel="stylesheet" href="<?php echo plugins_url( 'css/admin-style.css?ver='.$this->easy_table_base('version') , __FILE__);?>" />
+<script src="<?php echo plugins_url( 'js/ttooltip/script/jquery-ttooltip.min.js' , __FILE__);?>"></script>
+<link rel="stylesheet" href="<?php echo plugins_url( 'js/ttooltip/style/jquery-ttooltip.css?ver='.$this->easy_table_base('version') , __FILE__);?>" />
+
 <script type="text/javascript">
 //<![CDATA[
 	jQuery(document).ready(function($){
+		$('.ttt').ttooltip({
+			maxwidth:300,
+			timeout:500,
+			template:'<div class="ttooltip-wrap"><div class="ttooltip-arrow ttooltip-arrow-border"></div><div class="ttooltip-arrow"></div><div class="ttooltip-inner"><h3 class="ttooltip-title"></h3><div class="ttooltip-content"><p></p></div><div class="ttooltip-footer"></div></div></div>'
+		}); 
 		$('.togglethis a').click(function(e){
 			var target = $(this).attr('data-target');
 			$(target).toggle();
@@ -516,10 +634,14 @@ function easy_table_add_page() {
 * Plugin option page
 */	
 function easy_table_page() { ?>
-<div class="wrap">
+<div class="wrap easy-table-wrap">
 <div class="icon32"><img src="<?php echo plugins_url('/images/icon-table.png', __FILE__);?>" /></div>
 <h2 class="nav-tab-wrapper">
 	<a href="options-general.php?page=<?php echo $this->easy_table_base('plugin-domain');?>" class="nav-tab <?php echo !isset($_GET['gettab']) ? 'nav-tab-active' : '';?>"><?php printf(__('%s Option','easy-table'), $this->easy_table_base('name'));?></a>
+	<?php
+	/** currently not available
+	<a href="options-general.php?page=<?php echo $this->easy_table_base('plugin-domain');?>&gettab=themes" class="nav-tab <?php echo (isset($_GET['gettab']) AND ($_GET['gettab'] == 'themes')) ? 'nav-tab-active' : '';?>"><?php _e('Themes','easy-table');?></a>
+	*/?>
 	<a href="options-general.php?page=<?php echo $this->easy_table_base('plugin-domain');?>&gettab=support" class="nav-tab <?php echo (isset($_GET['gettab']) AND ($_GET['gettab'] == 'support')) ? 'nav-tab-active' : '';?>"><?php _e('Support','easy-table');?></a>
 	<a href="options-general.php?page=<?php echo $this->easy_table_base('plugin-domain');?>&gettab=about" class="nav-tab <?php echo (isset($_GET['gettab']) AND ($_GET['gettab'] == 'about')) ? 'nav-tab-active' : '';?>"><?php _e('About','easy-table');?></a>
 </h2>
@@ -531,7 +653,7 @@ wp_nonce_field('update-options');
 settings_fields('easy_table_option_field');
 
 ?>
-	<span class="togglethis toggledesc"><em><a href="#" data-target=".description"><?php _e('Show/hide description');?></a></em></span>
+	<span class="togglethis toggledesc"><em><a href="#" data-target=".help-btn"><?php _e('Show/hide help button');?></a></em></span>
 	<h3><?php _e('General options','easy-table');?></h3>
 	<?php
 	$fields = Array(
@@ -539,7 +661,7 @@ settings_fields('easy_table_option_field');
 			'name'			=> 'easy_table_plugin_option[shortcodetag]',
 			'label'			=> __('Short code tag','easy-table'),
 			'type'			=> 'text',
-			'description'	=> __('Shortcode tag, type "table" if you want to use [table] short tag.','easy-table'),
+			'description'	=> __('Shortcode tag, type \'table\' if you want to use [table] short tag.','easy-table'),
 			'value'			=> $this->option('shortcodetag')
 			)
 		,
@@ -585,6 +707,12 @@ settings_fields('easy_table_option_field');
 								'label'	=> __('Archive page','easy-table'),
 								'value'	=> 'is_archive',
 								'attr'	=> in_array('is_archive',$this->option('scriptloadin')) ? 'checked="checked"' : ''
+								),
+								Array(
+								'name' 	=> 'easy_table_plugin_option[scriptloadin][]',
+								'label'	=> __('Search page','easy-table'),
+								'value'	=> 'is_search',
+								'attr'	=> in_array('is_search',$this->option('scriptloadin')) ? 'checked="checked"' : ''
 								)
 								)
 		)
@@ -662,13 +790,37 @@ settings_fields('easy_table_option_field');
 			'type'			=> 'select',
 			'value'			=> $this->option('theme'),
 			'values'		=> array_combine($this->themes(),$this->themes()),
-			'description'	=> __('Select default theme of the table','easy-table'),
-			'attr'			=> $this->option('tablesorter') ? 'checked="checked"':'')
+			'description'	=> __('Select default theme of the table','easy-table')
+	)
 	);
 		echo $this->render_form($fields);
 	?>
 	
-	<h3><?php _e('Parser Option','easy-table');?></h3>
+	<h3><?php _e('Data options','easy-table');?></h3>
+	<?php
+		$fields = Array(
+		Array(	
+			'name'			=> 'easy_table_plugin_option[limit]',
+			'label'			=> __('Row limit','easy-table'),
+			'type'			=> 'text',
+			'value'			=> $this->option('limit'),
+			'rowclass'		=> 'new',
+			'description'	=>__('Max row to convert to table, default 0 (unlimited)','easy-table')
+		),
+		Array(	
+			'name'			=> 'easy_table_plugin_option[trim]',
+			'label'			=> __('Trim cell data?','easy-table'),
+			'type'			=> 'checkbox',
+			'value'			=> 1,
+			'attr'			=> $this->option('trim') ? 'checked="checked"':'',
+			'rowclass'		=> 'new',
+			'description'	=>__('Trim empty character around cell data','easy-table')
+		),
+		);
+		echo $this->render_form($fields);
+	?>
+	
+	<h3><?php _e('Parser options','easy-table');?></h3>
 	<p><em><?php _e('Do not change this unless you know what you\'re doing','easy-table');?></em>
 	</p>
 	<?php
@@ -679,6 +831,13 @@ settings_fields('easy_table_option_field');
 			'type'			=> 'text',
 			'value'			=> $this->option('nl'),
 			'description'	=> __('Since new line is used by parser, you need specify character as a replacement.','easy-table'))
+		,Array(
+			'name'			=> 'easy_table_plugin_option[terminator]',
+			'label'			=> __('Row terminator','easy-table'),
+			'type'			=> 'text',
+			'value'			=> $this->option('terminator'),
+			'rowclass'		=> 'new',
+			'description'	=> __('This caharacter will converted into new row. Default value \n (this is invisible character when you press Enter). If your new line not converted as new row in the table, try use \r instead.','easy-table'))
 		,Array(
 			'name'			=> 'easy_table_plugin_option[delimiter]',
 			'label'			=> __('Delimiter','easy-table'),
@@ -715,13 +874,14 @@ settings_fields('easy_table_option_field');
 </div>
 <div class="right">
 <?php
+
 $defaulttableexample = '
-[table caption="Just test table"]
-no[attr style="width:20px"],head1,head2,head3
-1,row1col1,row1col2,row1col3
-2,row2col1,row2col2,row2col3
-3,row3col1[attr colspan="2"],row3col3
-4,row4col1,row4col2,row4col3
+[table caption="Just test table" width="500" colwidth="20|100|50" colalign="left|left|center|left|right"]
+no,head1,head2,head3,head4
+1,row1col1,row1col2,row1col3,100
+2,row2col1,row2col2,row2col3,20000
+3,row3col1,,row3col3,1405
+4,row4col1,row4col2,row4col3,23023
 [/table]	';
 $tableexample = $defaulttableexample;
 if(isset($_POST['test-easy-table'])){
@@ -731,6 +891,7 @@ if(isset($_POST['test-easy-table'])){
 if(isset($_POST['test-easy-table-reset'])){
 	$tableexample = $defaulttableexample;
 }
+
 ?>
 <h3><?php _e('Possible parameter','easy-table');?></h3>
 <p><?php _e('These parameters commonly can override global options in the left side of this page. Example usage:','easy-table');?></p>
@@ -747,6 +908,12 @@ if(isset($_POST['test-easy-table-reset'])){
 <li><strong>tablesorter</strong>, <?php _e('default value','easy-table');?> <em>'false'</em></li>
 <li><strong>file</strong>, <?php _e('default value','easy-table');?> <em>'false'</em></li>
 <li><strong>sort</strong>, <?php _e('default value','easy-table');?> <em>''</em></li>
+<li class="new"><strong>trim</strong>, <?php _e('default value','easy-table');?> <em>false</em></li>
+<li class="new"><strong>style</strong>, <?php _e('default value','easy-table');?> <em>''</em></li>
+<li class="new"><strong>limit</strong>, <?php _e('default value','easy-table');?> <em>0</em></li>
+<li class="new"><strong>terminator</strong>, <?php _e('default value','easy-table');?> <em>\n</em></li>
+<li class="new"><strong>colalign</strong>, <?php _e('default value','easy-table');?> <em>''</em>, see example on the test area</li>
+<li class="new"><strong>colwidth</strong>, <?php _e('default value','easy-table');?> <em>''</em>, see example on the test area</li>
 </ol>
 <h3><?php printf('Example usage of %s parameter','sort','easy-table');?></h3>
 <p><em>sort</em> <?php _e('parameter is for initial sorting order. Value for each column separated by comma. See example below:','easy-table');?></p>
@@ -809,6 +976,35 @@ col4,col5,col6
 
 </div>
 <div class="clear"></div>
+<?php elseif($_GET['gettab'] == 'themes') : ?>
+	<h3><?php _e('Easy Table theme editor');?></h3>
+
+	<div class="row">
+		<div class="columns nine">
+			<textarea name="" id="easy-table-theme-editor"><?php echo esc_textarea($this->theme_content());?></textarea>
+			<input type="submit" class="button primary" value="Save"/>
+		</div>
+		<div class="columns three">
+			<ul>
+				<?php
+					foreach($this->themes() as $theme) {
+						echo '
+						<li><a href="#">'.$theme.'</a> 
+						<a href="options-general.php?page=easy-table&gettab=themes&edit='.$theme.'">edit</a>
+						<a href="&edit-theme=1&clone=1#">clone</a>
+						<a href="#">delete</a>
+						<a href="#">preview</a>
+						</li>';
+					}
+				?>
+			</ul>
+			<form action="">
+				New theme: <br/>
+				<input type="text" value="" placeholder="Theme name" name="themename"/>
+				<input type="submit" value="Create"/>
+			</form>
+		</div>
+	</div>
 
 <?php elseif($_GET['gettab'] == 'support') : ?>
 <p><?php _e('I have tried to make this plugin can be used as easy as possible and documentation as complete as possible. However it is also possible that you are still confused. Therefore feel free to ask. I would be happy to answer.','easy-table');?></p>
@@ -982,8 +1178,13 @@ if (!function_exists('str_getcsv')) {
 		rewind($handle);
 		$line = -1;
 		$return = Array();
-
-		while (($data = @fgetcsv($handle, 1000, $delimiter, $enclosure)) !== FALSE) {
+		/* add dynamic row limit, 
+		* @since: 1.0
+		*/
+		$option = get_option('easy_table_plugin_option');
+		$limit  = !empty($option['limit']) ? (int)$option['limit'] : 2000;
+		
+		while (($data = @fgetcsv($handle, $limit, $delimiter, $enclosure)) !== FALSE) {
 			$num = count($data);
 			for ($c=0; $c < $num; $c++) {
 				$line++;
