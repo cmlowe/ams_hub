@@ -10,7 +10,7 @@
 
 	function ams_add_style(){
 	
-		kula_enqueue_style('stylesheet', get_bloginfo('stylesheet_directory').'/css/style.css?v=1', array(), false, 'all');
+		kula_enqueue_style('stylesheet', get_bloginfo('stylesheet_directory').'/css/style.css?v=2', array(), false, 'all');
 	}
 
 	add_action('kula_child_enqueue_styles', 'ams_add_style');	
