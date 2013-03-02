@@ -492,6 +492,40 @@ position: relative;
 			}
 		}
 	}
+
+	#next, #prev {
+	position: absolute;
+	top: 50%;
+	padding: .5em 0.75em;
+	text-decoration: none;
+	background: url(../img/blue60.png);
+	background: rgba(0,39,159,0.6);
+	color: white;
+
+		&:hover,
+		&:focus {
+		background: url(../img/blue80.png);
+		background: rgba(0,39,159,0.8);		
+		}
+	}
+
+	#next {
+	right: -1em;
+
+		&:hover,
+		&:focus {
+		right: -1.25em;
+		}
+	}
+
+	#prev {
+	left: -1em;
+
+		&:hover,
+		&:focus {
+		left: -1.25em;
+		}
+	}
 }
 
 .page {

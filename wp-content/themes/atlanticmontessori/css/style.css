@@ -834,6 +834,37 @@ header .row.nav .twocol {
   padding: 1.5em 0 0;
   text-indent: inherit;
 }
+.hero #next,
+.hero #prev {
+  position: absolute;
+  top: 50%;
+  padding: .5em 0.75em;
+  text-decoration: none;
+  background: url(../img/blue60.png);
+  background: rgba(0, 39, 159, 0.6);
+  color: white;
+}
+.hero #next:hover,
+.hero #prev:hover,
+.hero #next:focus,
+.hero #prev:focus {
+  background: url(../img/blue80.png);
+  background: rgba(0, 39, 159, 0.8);
+}
+.hero #next {
+  right: -1em;
+}
+.hero #next:hover,
+.hero #next:focus {
+  right: -1.25em;
+}
+.hero #prev {
+  left: -1em;
+}
+.hero #prev:hover,
+.hero #prev:focus {
+  left: -1.25em;
+}
 .page article.fivecol {
   min-height: 34em;
 }

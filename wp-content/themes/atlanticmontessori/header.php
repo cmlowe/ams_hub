@@ -44,9 +44,10 @@
 </div>-->
 			<div class="eightcol hero">
 			<?php
-				$args = array( 'post_type' => 'home_slide', 'posts_per_page' => 1 );
+				$args = array( 'post_type' => 'home_slide', 'posts_per_page' => 3 );
 				$loop = new WP_Query( $args );
 				while ( $loop->have_posts() ) : $loop->the_post();
+					echo '<div class="slide">';
 					the_post_thumbnail();
 					echo '<div class="content">';
 					echo 	'<blockquote>';
@@ -55,9 +56,11 @@
 					echo 	'</blockquote>';
 					echo '</div>';
 					echo '<a href="', get_bloginfo('url'), '/contact-us" class="cta-button">Apply Now &raquo;</a>';
-					
+					echo '</div>';
 				endwhile;
-			?>			
+			?>
+				<a href="#"	id="prev">&larr;</a>
+				<a href="#"	id="next">&rarr;</a>
 			</div>
  			<div class="onecol last"></div>
 			
