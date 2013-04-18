@@ -756,17 +756,7 @@ header .row.nav .twocol {
   bottom: -6px;
 }
 /* Homepage */
-.hero {
-  position: relative;
-}
-.hero img {
-  position: relative;
-  display: block;
-  width: 100%;
-  border-bottom: 4px solid #19ae62;
-}
-.hero .cta-button {
-  position: absolute;
+.cta-button {
   display: inline-block;
   padding: 0.25em 0.5em;
   font-family: "PTSansBold", Helvetica, serif;
@@ -782,24 +772,36 @@ header .row.nav .twocol {
   background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
   background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
   background-image: linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
-  left: 1em;
-  margin-top: -1.125em;
-  font-size: 1.25em;
 }
-.hero .cta-button:hover,
-.hero .cta-button:focus {
+.cta-button:hover,
+.cta-button:focus {
   background-color: #17a25c;
   -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
   -o-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
 }
-.hero .cta-button:active {
+.cta-button:active {
   background-color: #117642;
   -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
   -o-box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
+}
+.hero {
+  position: relative;
+}
+.hero img {
+  position: relative;
+  display: block;
+  width: 100%;
+  border-bottom: 4px solid #19ae62;
+}
+.hero .cta-button {
+  position: absolute;
+  left: 1em;
+  margin-top: -1.125em;
+  font-size: 1.25em;
 }
 .hero .content {
   position: absolute;
