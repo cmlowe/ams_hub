@@ -40,7 +40,7 @@
 		</div>
 		<div class="row">
 <div class="alert">
-	<p>Now accepting enrolment for our 7 weeks of <a href="<?php get_bloginfo('url') ?>/programs/summer-camp">summer camp</a> programs</p>
+	<p>Now accepting enrolment for our <a href="<?php get_bloginfo('url') ?>/programs/summer-camp">summer camp</a></p>
 </div>
 			<div class="eightcol hero">
 			<?php
