@@ -10,15 +10,14 @@
 transition: @prop @dur @ease;
 }
 
-.shadow (@x:0, @y:2px, @blur:3px) {
--webkit-box-shadow: @x @y @blur rgba(0,0,0,0.5);
--moz-box-shadow: @x @y @blur rgba(0,0,0,0.5);
--o-box-shadow: @x @y @blur rgba(0,0,0,0.5);
-box-shadow: @x @y @blur rgba(0,0,0,0.5);
+.shadow (@args: 0 2px 3px rgba(0,0,0,0.5)) {
+-webkit-box-shadow: @args;
+-moz-box-shadow: @args;
+-o-box-shadow: @args;
+box-shadow: @args;
 }
 
 .gradient (@start, @stop) {
-background-color: @start;
 background-image: -moz-linear-gradient(top,  fadeout(@start, 100%), fadeout(@stop, 50%) 100%); /* FF3.6+ */
 background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,fadeout(@start, 100%)), color-stop(100%, fadeout(@stop, 50%))); /* Chrome,Safari4+ */
 background-image: -webkit-linear-gradient(top,  fadeout(@start, 100%) 0%, fadeout(@stop, 50%) 100%); /* Chrome10+,Safari5.1+ */
@@ -31,28 +30,26 @@ background-image: linear-gradient(top, fadeout(@start, 100%) 0%, fadeout(@stop, 
 display: inline-block;
 padding: 0.25em 0.5em;
 font-family: "PTSansBold", Helvetica, serif;
-font-weight: bold;
+letter-spacing: 0.05em;
+font-weight: normal;
 text-decoration: none;
-text-shadow: 0 -1px 0 rgba(0,0,0,0.45);
+//text-shadow: 0 -1px 0 rgba(0,0,0,0.45);
 color: @text;
-background-color: @bg;
+background-color: lighten(@bg, 7%);
 border: 1px solid darken(@bg, 3%);
-background-image: -moz-linear-gradient(top, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%);
-background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.4)), color-stop(100%,rgba(255,255,255,0)));
-background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.4) 0%,rgba(255,255,255,0) 100%);
-background-image: -o-linear-gradient(top, rgba(255,255,255,0.4) 0%,rgba(255,255,255,0) 100%);
-background-image: -ms-linear-gradient(top, rgba(255,255,255,0.4) 0%,rgba(255,255,255,0) 100%);
-background-image: linear-gradient(top, rgba(255,255,255,0.4) 0%,rgba(255,255,255,0) 100%);
+.gradient(lighten(@bg, 20%), @bg);
 
 	&:hover,
 	&:focus {
 	background-color: lighten(@bg, 5%);
-	.shadow();
+	color: @text;
+	.shadow(0 2px 3px rgba(0,0,0,0.5));
 	}
 
 	&:active {
 	background-color: darken(@bg, 5%);
-	.shadow(0,0,0);
+	color: @text;
+	.shadow(~'0 2px 3px rgba(0,0,0,0), inset 0 1px 1px rgba(0,0,0,0.25)');
 	}
 
 }

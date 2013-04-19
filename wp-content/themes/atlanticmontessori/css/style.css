@@ -504,6 +504,7 @@ blockquote p:first-child {
 strong {
   font-family: "PTSansBold";
   font-weight: normal;
+  letter-spacing: 0.05em;
 }
 hr {
   height: 0;
@@ -636,23 +637,36 @@ input[type="submit"] {
   display: inline-block;
   padding: 0.25em 0.5em;
   font-family: "PTSansBold", Helvetica, serif;
-  font-weight: bold;
+  letter-spacing: 0.05em;
+  font-weight: normal;
   text-decoration: none;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.45);
-  color: #000e39;
-  background-color: #00279f;
-  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0.4)), color-stop(100%, rgba(255, 255, 255, 0)));
-  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
-  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
-  background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
-  background-image: linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+  color: #ffffff;
+  background-color: #0030c3;
+  background-image: -moz-linear-gradient(top, rgba(6, 67, 255, 0), rgba(0, 39, 159, 0.5) 100%);
+  /* FF3.6+ */
+
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(6, 67, 255, 0)), color-stop(100%, rgba(0, 39, 159, 0.5)));
+  /* Chrome,Safari4+ */
+
+  background-image: -webkit-linear-gradient(top, rgba(6, 67, 255, 0) 0%, rgba(0, 39, 159, 0.5) 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background-image: -o-linear-gradient(top, rgba(6, 67, 255, 0) 0%, rgba(0, 39, 159, 0.5) 100%);
+  /* Opera 11.10+ */
+
+  background-image: -ms-linear-gradient(top, rgba(6, 67, 255, 0) 0%, rgba(0, 39, 159, 0.5) 100%);
+  /* IE10+ */
+
+  background-image: linear-gradient(top, rgba(6, 67, 255, 0) 0%, rgba(0, 39, 159, 0.5) 100%);
+  /* W3C */
+
   border: 1px solid #002390;
   color: white;
 }
 input[type="submit"]:hover,
 input[type="submit"]:focus {
   background-color: #002db9;
+  color: #ffffff;
   -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
   -o-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
@@ -660,10 +674,11 @@ input[type="submit"]:focus {
 }
 input[type="submit"]:active {
   background-color: #002186;
-  -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
-  -o-box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  -webkit-box-shadow: 0 2px 3px rgba(0,0,0,0), inset 0 1px 1px rgba(0,0,0,0.25);
+  -moz-box-shadow: 0 2px 3px rgba(0,0,0,0), inset 0 1px 1px rgba(0,0,0,0.25);
+  -o-box-shadow: 0 2px 3px rgba(0,0,0,0), inset 0 1px 1px rgba(0,0,0,0.25);
+  box-shadow: 0 2px 3px rgba(0,0,0,0), inset 0 1px 1px rgba(0,0,0,0.25);
 }
 input[type="submit"]:hover,
 input[type="submit"]:focus {
@@ -760,22 +775,35 @@ header .row.nav .twocol {
   display: inline-block;
   padding: 0.25em 0.5em;
   font-family: "PTSansBold", Helvetica, serif;
-  font-weight: bold;
+  letter-spacing: 0.05em;
+  font-weight: normal;
   text-decoration: none;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.45);
   color: #ffffff;
-  background-color: #148c4f;
+  background-color: #18ab61;
   border: 1px solid #127f47;
-  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0.4)), color-stop(100%, rgba(255, 255, 255, 0)));
-  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
-  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
-  background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
-  background-image: linear-gradient(top, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -moz-linear-gradient(top, rgba(38, 224, 129, 0), rgba(20, 140, 79, 0.5) 100%);
+  /* FF3.6+ */
+
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(38, 224, 129, 0)), color-stop(100%, rgba(20, 140, 79, 0.5)));
+  /* Chrome,Safari4+ */
+
+  background-image: -webkit-linear-gradient(top, rgba(38, 224, 129, 0) 0%, rgba(20, 140, 79, 0.5) 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background-image: -o-linear-gradient(top, rgba(38, 224, 129, 0) 0%, rgba(20, 140, 79, 0.5) 100%);
+  /* Opera 11.10+ */
+
+  background-image: -ms-linear-gradient(top, rgba(38, 224, 129, 0) 0%, rgba(20, 140, 79, 0.5) 100%);
+  /* IE10+ */
+
+  background-image: linear-gradient(top, rgba(38, 224, 129, 0) 0%, rgba(20, 140, 79, 0.5) 100%);
+  /* W3C */
+
 }
 .cta-button:hover,
 .cta-button:focus {
   background-color: #17a25c;
+  color: #ffffff;
   -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
   -o-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
@@ -783,10 +811,11 @@ header .row.nav .twocol {
 }
 .cta-button:active {
   background-color: #117642;
-  -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
-  -o-box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  -webkit-box-shadow: 0 2px 3px rgba(0,0,0,0), inset 0 1px 1px rgba(0,0,0,0.25);
+  -moz-box-shadow: 0 2px 3px rgba(0,0,0,0), inset 0 1px 1px rgba(0,0,0,0.25);
+  -o-box-shadow: 0 2px 3px rgba(0,0,0,0), inset 0 1px 1px rgba(0,0,0,0.25);
+  box-shadow: 0 2px 3px rgba(0,0,0,0), inset 0 1px 1px rgba(0,0,0,0.25);
 }
 .hero {
   position: relative;
