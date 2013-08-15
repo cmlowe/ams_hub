@@ -11,6 +11,25 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width initial-scale=1">
 	<?php wp_head(); ?>
+
+	<script type=“text/javascript” src=“http://ajax.googleapis.com/ajax/libs/webfont/1.0.21/webfont.js” ></script>
+	<!– Loads the webfont loader –>
+
+	<script type=“text/javascript”>
+	     WebFont.load({
+	        monotype: {
+	          projectId: '27bc9a81-0487-4fb9-99a8-c5b54a97094c'
+	           // replace this with your Fonts.com Web Fonts projectId — don’t forget to          do so below as well
+	        }
+	     });
+	</script>
+
+	<noscript>
+
+	<!– Use this in as a fallback to no JavaScript being available –>
+	   <link type="text/css" rel="stylesheet" href="http://fast.fonts.com/cssapi/a04ff147-fb1f-43d9-8a72-a6fd71b4017f.css"/>
+	</noscript>
+
 	<script type="text/javascript">
 	
 	  var _gaq = _gaq || [];
@@ -23,7 +42,7 @@
 	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	  })();
 	
-	</script>	
+	</script>
 </head>
 <body>
   <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
