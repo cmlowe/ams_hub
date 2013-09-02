@@ -823,6 +823,9 @@ header .row.nav .twocol {
 .hero {
   position: relative;
 }
+.hero .slide {
+  display: none;
+}
 .hero img {
   position: relative;
   display: block;
