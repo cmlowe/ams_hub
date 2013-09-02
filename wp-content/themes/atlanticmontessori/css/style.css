@@ -62,8 +62,6 @@ html {
   /* 1 */
 
   -webkit-text-size-adjust: 100%;
-  /* 2 */
-
   -ms-text-size-adjust: 100%;
   /* 2 */
 
@@ -271,8 +269,6 @@ textarea {
   /* 2 */
 
   vertical-align: baseline;
-  /* 3 */
-
   *vertical-align: middle;
   /* 3 */
 
@@ -328,8 +324,6 @@ input[type="radio"] {
   /* 2 */
 
   *height: 13px;
-  /* 3 */
-
   *width: 13px;
   /* 3 */
 
@@ -648,7 +642,6 @@ input[type="submit"] {
   text-decoration: none;
   color: #ffffff;
   background-color: #0030c3;
-  border: 1px solid #002390;
   background-image: -moz-linear-gradient(top, rgba(6, 67, 255, 0), rgba(0, 39, 159, 0.5) 100%);
   /* FF3.6+ */
 
@@ -1068,7 +1061,6 @@ footer ul {
 .row {
   max-width: 1000px;
   margin: 0 auto;
-  *zoom: 1;
   *zoom: 1;
 }
 .row:before,

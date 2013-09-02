@@ -59,7 +59,7 @@
 		</div>
 		<div class="row">
 <div class="alert">
-	<p>Now accepting enrolment for our <a href="<?php get_bloginfo('url') ?>/programs/summer-camp">summer camp</a></p>
+	<p>Limited number of toddler spaces availabel starting January 2014. <a href="<?php get_bloginfo('url') ?>/contact-us">Apply Now!</a></p>
 </div>
 			<div class="eightcol hero">
 			<?php
