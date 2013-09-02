@@ -2,9 +2,9 @@
 Contributors: takayukister
 Donate link: http://contactform7.com/donate/
 Tags: contact, form, contact form, feedback, email, ajax, captcha, akismet, multilingual
-Requires at least: 3.3
-Tested up to: 3.5
-Stable tag: 3.3.3
+Requires at least: 3.5
+Tested up to: 3.6
+Stable tag: 3.5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,24 +43,26 @@ The following are other recommended plugins by the author of Contact Form 7.
 * Bosnian (bs) - [Vedran](http://www.seorabbit.com/)
 * Brazilian Portuguese (pt_BR) - [Leonardo Pinheiro](http://www.eletrikabarbarella.com.br/), [Henrique Vianna](http://henriquevianna.com/), [Caciano Gabriel Batista](http://www.gn10.com.br/), [Gervásio Antônio](http://twitter.com/gervasioantonio)
 * Bulgarian (bg_BG) - [Iliyan Darganov](http://www.darganov.com/)
-* Catalan (ca) - [Jordi Sancho](http://www.qasolutions.net/blog), Robert Buj
-* Chinese, Simplified (zh_CN) - [Soz](http://www.webtoolol.com/), [Keefe Dunn](http://dengkefu.com/)
+* Catalan (ca) - [Jordi Sancho](http://www.qasolutions.net/blog), Robert Buj, Jaume Aragay Badia
+* Chinese, Simplified (zh_CN) - [Soz](http://www.webtoolol.com/), [Keefe Dunn](http://dengkefu.com/), [Stella Hu](http://prowordpresser.com/)
 * Chinese, Traditional (zh_TW) - [James Wu](http://jameswublog.com)
 * Croatian (hr) - [tolingo Translation Services](http://www.tolingo.com)
 * Czech (cs_CZ) - Korry, [Radovan Fiser](http://algymsa.cz/), [Tomas Vesely](http://www.mcmotylek.cz/), [Pavel Bilek](http://chcistranky.eu/zdarma/)
 * Danish (da_DK) - [Jens Griebel](http://www.kompas-it.dk/), [Georg S. Adamsen](http://wordpress.blogos.dk/)
-* Dutch (nl_NL) - [Chris Devriese](http://www.100it.be/), [Martin Hein](http://www.split-a-pixel.nl/), [Rene](http://wpwebshop.com/)
+* Dutch (nl_NL) - [Chris Devriese](http://www.100it.be/), [Martin Hein](http://www.split-a-pixel.nl/), [Rene](http://wpwebshop.com/), [TenSheep](http://tensheep.nl/)
 * Esperanto (eo_EO) - Arkadiusz Zychewicz
 * Estonian (et) - [Peeter Rahuvarm](http://www.kraabus.ee), Egon Elbre
 * Finnish (fi) - [Miika Turunen](http://www.webwork.fi/), [Mediajalostamo](http://www.mediajalostamo.fi/), [Jani Alha](http://www.wysiwyg.fi/)
-* French (fr_FR) - [Jillij](http://www.jillij.com/), [Oncle Tom](http://case.oncle-tom.net/), [Maître Mô](http://maitremo.fr/), Sellami Hédi
+* French (fr_FR) - [Jillij](http://www.jillij.com/), [Oncle Tom](http://case.oncle-tom.net/), [Maître Mô](http://maitremo.fr/), Hédi Sellami
 * Galician (gl_ES) - [Arume Desenvolvementos Informáticos](http://www.arumeinformatica.es/)
 * Georgian (ka_GE) - [Nodar Rocko Davituri](http://davituri.com/)
 * German (de_DE) - [Marcel Spitau](http://blog.spitau.de), [Ivan Graf](http://blog.bildergallery.com/)
 * Greek (el) - [Nick Mouratidis](http://www.kepik.gr/), [Pr. friedlich](http://friedlich.wordpress.com/)
+* Gujarati (gu_IN) - [Apoto](http://www.apoto.com/)
 * Hebrew (he_IL) - [Yaron Ofer](http://www.gadgetguru.co.il/), [Arik Galansky](http://www.arikg.co.il/)
 * Hindi (hi_IN) - [Tarun Joshi](http://www.readers-cafe.net/), [Ashish](http://outshinesolutions.com/)
 * Hungarian (hu_HU) - [Andras Hirschler](http://hia.itblog.hu/), [János Csárdi-Braunstein](http://blogocska.org/), [Farkas Győző](http://www.sakraft.hu/)
+* Indian Bengali (bn_IN) - [Suman Manna](http://www.gwebpro.com/)
 * Indonesian (Bahasa Indonesia; id_ID) - [Hendry Lee](http://blogbuildingu.com/), [Belajar Seo Indonesia](http://dhany.web.id/panduan-seo)
 * Irish (ga_IE) - [Vikas Arora](http://www.wiznicworld.com/)
 * Italian (it_IT) - [Bruno](http://www.brunosalzano.com), [Gianni Diurno](http://gidibao.net/)
@@ -80,11 +82,11 @@ The following are other recommended plugins by the author of Contact Form 7.
 * Romanian (ro_RO) - [Stas Sushkov](http://stas.nerd.ro/), [Anunturi Jibo](http://www.jibo.ro/), [Marius Olar](http://webdudes.ro/)
 * Serbian (sr_RS) - [Vedran](http://www.seorabbit.com/), [Aleksandar Urošević](http://blog.urosevic.net/)
 * Sinhala (si_LK) - [Nitin Aggarwal](http://offshoreally.com/)
-* Slovak (sk_SK) - [Patrik Bóna](http://www.mrhead.sk/)
+* Slovak (sk_SK) - [Patrik Bóna](http://www.mrhead.sk/), [WordPress Slovakia](http://wp.sk/)
 * Slovene (sl_SI) - [Mihael Simonič](http://smihael.bplaced.net), Jani Roskar
-* Spanish (es_ES) - [Jordi Sancho](http://www.qasolutions.net/blog), [Vladimir Prieto](http://vladimir.prie.to/), [Federico Mikaelian](http://www.fedemika.com.ar/), [Matias Baldanza](http://matiasbaldanza.com/), [Carlos Agnese](http://albumdecarlitos.com.ar/)
+* Spanish (es_ES) - [Jordi Sancho](http://www.qasolutions.net/blog), [Vladimir Prieto](http://vladimir.prie.to/), [Federico Mikaelian](http://www.fedemika.com.ar/), [Matias Baldanza](http://matiasbaldanza.com/), [Carlos Agnese](http://albumdecarlitos.com.ar/), [Lourdes Cuesta](http://www.morote.net)
 * Swedish (sv_SE) - [Fredrik Jonsson](http://www.fredda-o-ac.se/), [the Swedish community](http://wp-support.se/)
-* Tagalog (tl) - [Rupert Agnew Lanuza](http://wheretobuy.com.ph/), [Hanne](http://pointen.dk/)
+* Tagalog (tl) - [Rupert Agnew Lanuza](http://www.rupertlanuza.com/), [Hanne](http://pointen.dk/), [Language Connect](http://www.languageconnect.net/)
 * Tamil (ta) - [Nitin Aggarwal](http://offshoreally.com/)
 * Thai (th) - [ToshiK](http://www.tuntikorn.com/), [kazama](http://blog.wordthai.com/)
 * Turkish (tr_TR) - [Roman Neumuller](http://katpatuka.wordpress.com), [Hasan Yılmaz](http://hedefturkce.com/), [Emin Buğra Saral](http://www.rahmetli.info/), Burak Yavuz
@@ -92,10 +94,6 @@ The following are other recommended plugins by the author of Contact Form 7.
 * Vietnamese (vi) - Thanh Hải, Hà, [Khang Minh](http://betterwp.net/)
 
 If you have created your own language pack, or have an update of an existing one, you can send [gettext PO and MO files](http://codex.wordpress.org/Translating_WordPress) to [me](http://ideasilo.wordpress.com/about/) so that I can bundle it into Contact Form 7. You can download the latest [POT file](http://plugins.svn.wordpress.org/contact-form-7/trunk/languages/wpcf7.pot), and [PO files in each language](http://plugins.svn.wordpress.org/contact-form-7/branches/languages/).
-
-= Icon Design =
-
-* [Takao Honda](http://www.takaohonda.jp/)
 
 == Installation ==
 
@@ -122,44 +120,32 @@ Do you have questions or issues with Contact Form 7? Use these support channels 
 
 == Changelog ==
 
-= 3.3.3 =
+= 3.5.2 =
 
-* Fixed: Logic of resolving upload directory on WordPress 3.5 multi-site install.
-* The jQuery Form Plugin (jquery.form.js) has been updated to 3.25.0.
-* Translations for French, German, Russian and Turkish have been updated.
+* Fixed: Strip newlines to prevent mail header injection.
+* The jQuery Form Plugin (jquery.form.js) has been updated to 3.40.0.
+* Translations for Spanish and Dutch have been updated.
 
-= 3.3.2 =
+= 3.5.1 =
 
-* Fixed: Add the additional headers only when they are not empty.
-* Fixed: Don't load hidden files in the modules folder.
-* The jQuery Form Plugin (jquery.form.js) has been updated to 3.23.
-* Irish translation has been created by Vikas Arora.
-* Translations for German, Thai, Hungarian and Tagalog have been updated.
+* Fixed: Submissions with array value cause PHP error.
+* Translation for Indian Bengali (bn_IN) has been created.
+* Translations for Spanish, Tagalog and Japanese have been updated.
 
-= 3.3.1 =
+= 3.5 =
 
-* Fixed: Apply esc_html() to response outputs. In the case it is necessary to use HTML tags in the response messages, new wpcf7_form_response_output filter is available.
-* Fixed: Don't use $_POST for internal data passing. Use global $wpcf7 variable instead.
-* Fixed: Treat array value correctly in the Akismet module.
-* Fixed: Escape outputs of [_user_agent] spacial mail tags used in the HTML mode.
-* Fixed: Don't show the notice about conflicting with Jetpack to new users who rarely see such conflicts.
-* The jQuery Form Plugin (jquery.form.js) has been updated to 3.18.
-* Translations for Danish and Finnish have been updated.
-
-= 3.3 =
-
-* New: Introduce a new special mail tag [_user_agent] for user agent information.
-* New: Make WordPress Comment Blacklist applicable for inputs through contact forms.
-* New: Introduce new form of mail tag [\_raw\_{field name}]. This allows to output raw user input those have not been modified with pipes.
-* New: Make mail tags available in response messages.
-* New: Introduce new additional setting on_submit. It works like on_sent_ok and has one-line JavaScript code, but on_submit code is fired regardless of whether or not the mail has been sent successfully.
-* New: Introduce 5 new jQuery custom event triggers (invalid.wpcf7, spam.wpcf7, mailsent.wpcf7, mailfailed.wpcf7, submit.wpcf7).
-* Fix: Nonce used in a form have been changed to have no time limit.
-* Fix: Make every post meta’s key have underscore prefix.
-* The jQuery Form Plugin (jquery.form.js) has been updated to 3.15 and compressed with YUI compressor.
-* The required WordPress version has been changed and now requires WordPress 3.3 or higher. If you use WordPress 3.2, you will need to upgrade WordPress.
-* Translations for Arabic and German have been updated.
+* Added: Support of local file attachment.
+* Added: first_as_label option to drop-down menu (select) tag.
+* Added: Support of jQuery UI fallback for non-HTML5 browsers.
+* Show error message from jquery.form.js in a hidden element.
+* Make ajax-loader image have https URL when the page is https.
+* Use win_is_writable() to avoid file system issues on Windows server.
+* Save locale information when generating a contact form.
+* The jQuery Form Plugin (jquery.form.js) has been updated to 3.39.0.
+* Translations for Finnish, German and Turkish have been updated.
 
 == Upgrade Notice ==
 
-The current version of Contact Form 7 requires WordPress 3.3 or higher. If you use older version of WordPress, you need to upgrade WordPress first.
+= 3.5.2 =
+
+This version fixes a security related bug. Upgrade immediately.

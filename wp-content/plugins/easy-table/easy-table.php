@@ -4,11 +4,11 @@ Plugin Name: Easy Table
 Plugin URI: http://takien.com/
 Description: Create table in post, page, or widget in easy way.
 Author: Takien
-Version: 1.0
+Version: 1.4
 Author URI: http://takien.com/
 */
 
-/*  Copyright 2012 takien.com
+/*  Copyright 2013 takien.com
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -19,25 +19,6 @@ Author URI: http://takien.com/
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
-
-    For a copy of the GNU General Public License, write to the Free Software
-    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-*/
-/*
-Easy Table 1.0 beta2
-+ Added nl2br if terminator is not \n nor \r
-+ Added is_search conditional option to load CSS/JS
-+ Improved admin UI, field description is now using tTooltip
-
-Easy Table 1.0 beta
-Changelog:
-+ Encoding fix (?)
-+ Added colalign
-+ Added colwidth
-+ Added style param
-+ Added limit param
-+ Added trim param
-+ Added terminator param
 */
 
 if(!defined('ABSPATH')) die();
@@ -75,7 +56,8 @@ var $settings = Array(
 	'nl'            => '~~',
 	'csvfile'       => false,
 	'terminator'    => '\n', /*row terminator, since 1.0*/
-	'limit'         => 0 /*max row to be included to table, 0 = unlimited, since 1.0*/
+	'limit'         => 0, /*max row to be included to table, 0 = unlimited, since 1.0*/
+	'fixlinebreak'  => false
 );
 
 
@@ -105,7 +87,7 @@ function __construct(){
 private function easy_table_base($return){
 	$easy_table_base = Array(
 				'name' 			=> 'Easy Table',
-				'version' 		=> '1.0',
+				'version' 		=> '1.4',
 				'plugin-domain'	=> 'easy-table'
 	);
 	return $easy_table_base[$return];
@@ -113,29 +95,30 @@ private function easy_table_base($return){
 
 function easy_table_short_code($atts, $content="") {
 	$shortcode_atts = shortcode_atts(array(
-		'class' 		=> $this->option('class'),
-		'caption' 		=> $this->option('caption'),
-		'width' 		=> $this->option('width'),
-		'align' 		=> $this->option('align'),
-		'th'	  		=> $this->option('th'),
-		'tf'	  		=> $this->option('tf'),
-		'border'		=> $this->option('border'),
-		'id'	  		=> $this->option('id'),
-		'theme'			=> $this->option('theme'),
-		'tablesorter'	=> $this->option('tablesorter'),
-		'delimiter'		=> $this->option('delimiter'),
-		'enclosure' 	=> $this->option('enclosure'),
-		'escape' 		=> $this->option('escape'),
-		'file'			=> $this->option('file'),
-		'trim'			=> $this->option('trim'), 
+		'class'         => $this->option('class'),
+		'caption'       => $this->option('caption'),
+		'width'         => $this->option('width'),
+		'th'            => $this->option('th'),
+		'tf'            => $this->option('tf'),
+		'border'        => $this->option('border'),
+		'id'            => $this->option('id'),
+		'theme'         => $this->option('theme'),
+		'tablesorter'   => $this->option('tablesorter'),
+		'delimiter'     => $this->option('delimiter'),
+		'enclosure'     => $this->option('enclosure'),
+		'escape'        => $this->option('escape'),
+		'file'          => $this->option('file'),
+		'trim'          => $this->option('trim'), 
 		'sort'          => '',
 		'nl'            => $this->option('nl'),
 		'ai'            => false,
-		'terminator'	=> $this->option('terminator'),
-		'limit'	        => $this->option('limit'),
-		'style'	        => '', /*table inline style, since 1.0*/
+		'terminator'    => $this->option('terminator'),
+		'limit'         => $this->option('limit'),
+		'align'         => $this->option('align'),
+		'style'         => '', /*table inline style, since 1.0*/
 		'colalign'      => '', /*column align, ex: [table colalign="left|right|center"], @since 1.0*/
 		'colwidth'      => '', /*column width, ex: [table colwidth="100|200|300"], @since 1.0*/
+		'fixlinebreak'  => $this->option('fixlinebreak') /* fix linebreak on cell if terminator is not \n or \r @since 1.1.4 */
 	 ), $atts);
 	/**
 	* because clean_pre is deprecated since WordPress 3.4, then replace it manually
@@ -205,7 +188,7 @@ private function csv_to_table($data,$args){
 		/*
 		convert csv to array.
 		*/
-		$data 	= $this->csv_to_array(trim($data), $delimiter, $enclosure, $escape,$terminator);
+		$data 	= $this->csv_to_array(trim($data), $delimiter, $enclosure, $escape, $terminator, $limit);
 	}
 	
 	if(empty($data)) return false;
@@ -230,8 +213,15 @@ private function csv_to_table($data,$args){
 	* @since 0.4
 	*/
 	$tfpos = ($tf == 'last') ? count($data) : ($th?2:1);
+	
+	/**
+	* add auto width
+	* @since 1.1.3
+	*/	
 
-	$width = (stripos($width,'%') === false) ? (int)$width.'px' : (int)$width.'%';
+	if ( 'auto' !== $width ) {
+ 		$width = (stripos($width,'%') === false) ? (int)$width.'px' : (int)$width.'%';
+ 	}
 	
 	/*colalign & colwidth
 	@since 1.0
@@ -243,9 +233,28 @@ private function csv_to_table($data,$args){
 	    $c_width = explode('|',$colwidth);
 	}
 	
+	/* added back $align, with new way of implementation, 
+	* @since 1.4
+	*/
+	$style = rtrim($style, ';');
+	switch ($align) :
+		case 'center':
+			$alignstyle = '; margin-left:auto;margin-right:auto';
+		break;
+		case 'right':
+			$alignstyle = '; margin-left:auto;margin-right:0';
+		break;
+		default:
+			$alignstyle = '';
+		break;
+	endswitch; 
+	
+	$style = $style.$alignstyle;
+	
 	$output = '<table '.($id ? 'id="'.$id.'"':'');
-	$output .= ' width="'.$width.'" align="'.$align.'" ';
-	$output .= ' style="'.((stripos($style,'width') === false) ? ('width:'.$width.';'.(($align=='center') ? 'margin-left:auto;margin-right:auto' : '')) : $style).'" ';
+	
+	//$output .= ' width="'.$width.'" '; width attr not used, use style instead (see below) - since 1.1.3
+	$output .= ' style="'.((stripos($style,'width') === false) ? ('width:'.$width.';') : '').' '.ltrim($style,';').'" ';
 	$output .= ' class="easy-table easy-table-'.$theme.' '.($tablesorter ? 'tablesorter __sortlist__ ':'').$class.'" '.
 	(($border !=='0') ? 'border="'.$border.'"' : '').
 	'>'."\n";
@@ -333,8 +342,12 @@ ai head, text to shown in the table head row, default is No.
 			$cell  = $trim ? trim(str_replace('&nbsp;','',$cell)) : $cell;
 			
 			/*nl2br? only if terminator is not \n or \r*/
-			if(( '\n' !== $terminator )  OR ( '\r' !== $terminator )) {
-				$cell = nl2br($cell);
+			/* optionally, if $fixlinebreak is set. @since 1.1.4 */
+			
+			if ( $fixlinebreak ) {
+				if(( '\n' !== $terminator )  OR ( '\r' !== $terminator )) {
+					$cell = nl2br($cell);
+				}
 			}
 			/*colalign
 			 @since 1.0
@@ -408,7 +421,7 @@ $terminator = ($terminator == '\n') ? "\n" : $terminator;
 $terminator = ($terminator == '\r') ? "\r" : $terminator;
 $terminator = ($terminator == '\t') ? "\t" : $terminator;
 
-$rows = str_getcsv($csv, $terminator,$enclosure,$escape); 
+$rows = easy_table_str_getcsv($csv, $terminator,$enclosure,$escape); 
 $rows = array_diff($rows,Array(''));
 /*
 * limit how many rows will be included?
@@ -420,7 +433,7 @@ if($limit > 0) {
 }
 
 foreach($rows as &$row) {
-	$r[] = str_getcsv($row,$delimiter);
+	$r[] = easy_table_str_getcsv($row,$delimiter);
 }
 return $r;
 }
@@ -763,17 +776,17 @@ settings_fields('easy_table_option_field');
 			'description'	=> __('Table width, in pixel or percent (may be overriden by CSS)','easy-table'),
 			'value'			=> $this->option('width'))
 		,Array(
-			'name'			=> 'easy_table_plugin_option[align]',
-			'label'			=> __('Table align','easy-table'),
-			'type'			=> 'text',
-			'description'	=> __('Table align, left/right/center (may be overriden by CSS)','easy-table'),
-			'value'			=> $this->option('align'))
-		,Array(
 			'name'			=>'easy_table_plugin_option[border]',
 			'label'			=> __('Table border','easy-table'),
 			'type'			=> 'text',
 			'description'	=> __('Table border (may be overriden by CSS)','easy-table'),
 			'value'			=> $this->option('border'))
+		,Array(
+			'name'			=>'easy_table_plugin_option[align]',
+			'label'			=> __('Table align','easy-table'),
+			'type'			=> 'text',
+			'description'	=> __('Table align (left, center, right)','easy-table'),
+			'value'			=> $this->option('align'))
 	);
 	?>	
 
@@ -856,6 +869,13 @@ settings_fields('easy_table_option_field');
 			'type'			=> 'text',
 			'value'			=> $this->option('escape'),
 			'description'	=>__('CSV escape (default is backslash)','easy-table'))
+		,Array(
+			'name'			=> 'easy_table_plugin_option[fixlinebreak]',
+			'label'			=> __('Fix linebreak','easy-table'),
+			'type'			=> 'checkbox',
+			'value'			=> 1,
+			'description'	=> __('If terminator is not default (linebreak), you may encounter some issue with linebreak inside cell, try to check or uncheck this to resolve','easy-table'),
+			'attr'			=> $this->option('fixlinebreak') ? 'checked="checked"' : '')
 		,Array(
 			'name'			=> 'easy_table_plugin_option[csvfile]',
 			'label'			=> __('Allow read CSV from file?','easy-table'),
@@ -1146,12 +1166,12 @@ $api = plugins_api('plugin_information', array('slug' => 'easy-table' ));
 <li>CSS <?php _e('by','easy-table');?> <a target="_blank" href="http://twitter.github.com/bootstrap">Twitter Bootstrap</a></li>
 <li>jQuery metadata <?php _e('by','easy-table');?> <a target="_blank" href="https://github.com/jquery/jquery-metadata/">John Resig</a></li>
 <li>CuscoSky table styles <?php _e('by','easy-table');?> <a target="_blank" href="http://www.buayacorp.com">Braulio Soncco</a></li>
+<li>Tablesorter updated version <?php _e('by','easy-table');?> <a target="_blank" href="https://github.com/Mottie/tablesorter">Rob Garrison</a></li>
 
 </ul>
 		<?php endif; ?>
 	</div>
 <?php endif; ?>
-
 </div><!--wrap-->
 
 <?php
@@ -1169,9 +1189,23 @@ function easy_table_init() {
 /**
 * Create function str_getcsv if not exists in server
 * @since version 0.2
+* Use dedicated str_getcsv since 1.1
 */	
-if (!function_exists('str_getcsv')) {
-	function str_getcsv($input, $delimiter = ",", $enclosure = '"', $escape = "\\"){
+if (!function_exists('easy_table_str_getcsv')) {
+	function easy_table_str_getcsv($input, $delimiter = ",", $enclosure = '"', $escape = '\\'){
+		
+		/** 
+		* Bug fix, custom terminator wont work
+		* @since version 1.1.1
+		*/
+		if( ("\r" === $delimiter) OR ("\n" === $delimiter) ) {
+		}
+		else {
+			$input = str_replace("\n",'NLINEBREAK',$input);
+			$input = str_replace("\r",'RLINEBREAK',$input);
+		}
+		$input = str_ireplace( $escape.$delimiter,'_ESCAPED_SEPATATOR_',$input );
+		
 		$fiveMBs = 5 * 1024 * 1024;
 		if (($handle = fopen("php://temp/maxmemory:$fiveMBs", 'r+')) !== FALSE) {
 		fputs($handle, $input);
@@ -1181,13 +1215,16 @@ if (!function_exists('str_getcsv')) {
 		/* add dynamic row limit, 
 		* @since: 1.0
 		*/
+		
 		$option = get_option('easy_table_plugin_option');
 		$limit  = !empty($option['limit']) ? (int)$option['limit'] : 2000;
-		
-		while (($data = @fgetcsv($handle, $limit, $delimiter, $enclosure)) !== FALSE) {
+		while (($data = @fgetcsv( $handle, $limit, $delimiter, $enclosure )) !== FALSE) {
 			$num = count($data);
 			for ($c=0; $c < $num; $c++) {
 				$line++;
+				$data[$c] = str_replace('NLINEBREAK',"\n",$data[$c]);
+				$data[$c] = str_replace('RLINEBREAK',"\r",$data[$c]);
+				$data[$c] = str_replace('_ESCAPED_SEPATATOR_',$delimiter,$data[$c]);
 				$return[$line] = $data[$c];
 			}
 		}
