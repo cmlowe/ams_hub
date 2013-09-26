@@ -68,13 +68,13 @@
 				while ( $loop->have_posts() ) : $loop->the_post();
 					echo '<div class="slide">';
 							the_post_thumbnail();
+						echo '<div class="content">';
+						echo 	'<blockquote>';
+						echo 		the_content();
+						echo 	'</blockquote>';
+						echo '</div>';
 					echo '</div>';
 				endwhile;				
-					echo '<div class="content">';
-					echo 	'<blockquote>';
-					echo 		the_content();
-					echo 	'</blockquote>';
-					echo '</div>';					
 			?>
 				<a href="', get_bloginfo('url'), '/contact-us" class="cta-button">Apply Now &raquo;</a>
 				<a href="#"	id="prev">&larr;</a>
