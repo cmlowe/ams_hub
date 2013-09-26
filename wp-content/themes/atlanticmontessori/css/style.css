@@ -1230,8 +1230,9 @@ footer ul {
     position: static;
     width: auto;
     padding: 1em 1em 1em 2em;
+    margin-bottom: 0;
   }
-  .hero .content blockquote p.author {
+  .hero .content .author {
     padding-top: 1em;
   }
   .hero .cta-button {
