@@ -67,17 +67,16 @@
 				$loop = new WP_Query( $args );
 				while ( $loop->have_posts() ) : $loop->the_post();
 					echo '<div class="slide">';
-					the_post_thumbnail();
-					echo '<div class="content">';
-					echo 	'<blockquote>';
-					echo 		the_content();
-					echo 	'<p class="author">', the_title(), '</p>';
-					echo 	'</blockquote>';
+							the_post_thumbnail();
+						echo '<div class="content">';
+						echo 	'<blockquote>';
+						echo 		the_content();
+						echo 	'</blockquote>';
+						echo '</div>';
 					echo '</div>';
-					echo '<a href="', get_bloginfo('url'), '/contact-us" class="cta-button">Apply Now &raquo;</a>';
-					echo '</div>';
-				endwhile;
+				endwhile;				
 			?>
+				<a href="', get_bloginfo('url'), '/contact-us" class="cta-button">Apply Now &raquo;</a>
 				<a href="#"	id="prev">&larr;</a>
 				<a href="#"	id="next">&rarr;</a>
 			</div>

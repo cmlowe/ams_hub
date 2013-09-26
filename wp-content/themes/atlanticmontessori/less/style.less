@@ -99,12 +99,6 @@ h6 {
 p {
 padding: 0;
 margin: 0 0 1.5em;
-
-	&.author {
-	font-family: 'PTSansRegular', Helvetica, serif;
-	font-size: 0.631578947368421em;
-	line-height: 1em;
-	}
 	
 	&.intro {
 	font-family: "PTSerifRegular", Goergia, Times New Roman, serif;
@@ -455,16 +449,27 @@ padding-bottom: 0;
 
 .hero {
 position: relative;
+border-bottom: 4px solid @greenAccent;
+background-color: rgba(0,0,0,0.25);
+.shadow(0 2px 6px rgba(0,0,0,0.5) inset);
 
 	.slide {
 		display: none;
+	}
+
+	h2 {
+		font-family: 'PTSansRegular', Helvetica, serif;
+		font-size: 0.631578947368421em;
+		line-height: 1em;
+		text-shadow: none;
+		color: white;
+		margin: 1em 0 0;
 	}
 
 	img {
 	position: relative;
 	display: block;
 	width: 100%;
-	border-bottom: 4px solid @greenAccent;
 	}
 	
 	.cta-button {
