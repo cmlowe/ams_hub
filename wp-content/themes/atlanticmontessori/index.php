@@ -2,7 +2,7 @@
     <div class="container">
     	<div class="row">
     		<div class="eightcol">
-    			<p class="intro">Atlantic Montessori School offers <em>high quality, child-centred education</em> for children <strong>ages 18 months to six years of age</strong>. Our focus is on meeting the individual needs of each child, while providing a warm, nurturing environment in which to grow and learn.</p>
+    			<p class="intro">Atlantic Montessori School offers <strong>high quality, child-centred education</strong> for children <strong>ages 18 months to six years of age</strong>. Our focus is on meeting the individual needs of each child, while providing a warm, nurturing environment in which to grow and learn.</p>
     		</div>
     	</div>
     	<div class="row">

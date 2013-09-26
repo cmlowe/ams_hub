@@ -459,6 +459,9 @@ p.intro {
   padding: 0;
   margin-bottom: 1em;
 }
+p.intro em {
+  font-family: "PTSerifItalic";
+}
 p.intro strong {
   font-family: "PTSerifBold";
   font-weight: normal;
@@ -478,6 +481,7 @@ em {
 p em {
   font-family: "PTSansItalic";
   font-style: normal;
+  font-size: 1.05em;
 }
 blockquote {
   font-family: "PTSerifRegular", Goergia, Times New Roman, serif;
