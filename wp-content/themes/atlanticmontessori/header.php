@@ -63,7 +63,7 @@
 </div>
 			<div class="eightcol hero">
 			<?php
-				$args = array( 'post_type' => 'home_slide', 'posts_per_page' => 3 );
+				$args = array( 'post_type' => 'home_slide', 'posts_per_page' => 5 );
 				$loop = new WP_Query( $args );
 				while ( $loop->have_posts() ) : $loop->the_post();
 					echo '<div class="slide">';
